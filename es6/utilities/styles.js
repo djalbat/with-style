@@ -1,12 +1,8 @@
 'use strict';
 
-const lexers = require('occam-lexers'), ///
-      parsers = require('occam-parsers'); ///
-
-const Style = require('../style');
-
-const { CSSLexer } = lexers,
-      { CSSParser } = parsers;
+const Style = require('../style'),
+      CSSLexer = require('../css/lexer'),
+      CSSParser = require('../css/parser');
 
 const cssLexer = CSSLexer.fromNothing(),
       cssParser = CSSParser.fromNothing();

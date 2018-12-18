@@ -4,6 +4,7 @@ Programmatic styles support.
 
 This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style).
 You will never need to install this directly as a dependency of your project.
+However, you might wish to install it standalone, so to speak, in order to try out the example.
 
 ## Installation
 
@@ -18,6 +19,13 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 ...then install the necessary modules with npm from within the project's root directory:
 
     npm install
+
+You will need to do this if you want to look at the example.
+
+## Example
+
+Not an example as such.
+You c
 
 ## What CSS is supported?
 
