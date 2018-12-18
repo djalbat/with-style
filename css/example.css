@@ -9,7 +9,7 @@
   padding: 0;
 }
 
-.vertical.splitter {
+.main.vertical.splitter {
   width: 8px;
   min-width: 8px;
   background-color: lightgray;
@@ -60,7 +60,11 @@ textarea.error {
   border-color: red;
 }
 
-textarea.entries {
+textarea.parse-tree {
+  margin-bottom: 1rem;
+}
+
+textarea.lexical-entries {
   overflow-wrap: normal;
   margin-bottom: 1rem;
 }

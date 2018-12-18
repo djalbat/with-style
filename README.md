@@ -2,9 +2,7 @@
 
 Programmatic styles support.
 
-This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style).
-You will never need to install this directly as a dependency of your project.
-However, you might wish to install it standalone, so to speak, in order to try out the example.
+This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style). You will never need to install this directly as a dependency of your project. However, you might wish to install it in order to try out the example.
 
 ## Installation
 
@@ -25,7 +23,10 @@ You will need to do this if you want to look at the example.
 ## Example
 
 Not an example as such.
-You c
+It allows you to test out CSS against the built-in CSS lexer and parser.
+This is the first port of call should you suspect that your CSS is not being parsed correctly.
+Both the lexical entries and BNF that make up the CSS grammar can be altered on the fly.
+Pull requests are welcome for improvements to either.
 
 ## What CSS is supported?
 
@@ -42,14 +43,9 @@ a {
 
 }
 ```
-Not being able to do so is restrictive, admittedly, but deliberately so.
-After all the idea is to tightly bind a component to its style.
-Hence we create a child `Link` component, rather than style it by way of its parent.
+Not being able to do so is restrictive, admittedly, but deliberately so. After all the idea is to tightly bind a component to its style. Hence we create a child `Link` component, rather than style it by way of its parent.
 
-If you really must style the child elements of components in some way, and there are occasions this is unavoidable, add a fixed class name to the component and define this class in an external style sheet.
-For example, say you wanted to create a component for viewing markdown.
-The markdown is to be rendered as HTML and you would like to style the resultant images, titles and so on.
-You could implement your component thus:
+If you really must style the child elements of components in some way, and there are occasions this is unavoidable, add a fixed class name to the component and define this class in an external style sheet. For example, say you wanted to create a component for viewing markdown. The markdown is to be rendered as HTML and you would like to style the resultant images, titles and so on. You could implement your component thus:
 
 ```js
 class MarkdownViewer extends React.Component {
@@ -80,6 +76,7 @@ module.exports = withStyle(MarkdownViewer)`
 `;
 ```
 Now you could create an external style sheet for styling the rendered HTML:
+
 ```css
 .markdown {
 
@@ -87,8 +84,8 @@ Now you could create an external style sheet for styling the rendered HTML:
 
 }
 ```
-Other than this restriction, most of standard CSS is supported.
-All of the following CSS is fine, for example:
+Other than this restriction, most of standard CSS is supported. All of the following CSS is fine, for example:
+
 ```css
   color: ${black};
   border: ${border};
