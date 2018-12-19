@@ -6,7 +6,8 @@ const dom = require('occam-dom'),  ///
 const Declarations = require('./declarations');
 
 const { arrayUtilities } = necessary,
-      { Query, asContent } = dom,
+      { Query, nodeUtilities } = dom,
+      { asContent } = nodeUtilities,
       { first } = arrayUtilities;
 
 const selectorsQuery = Query.fromExpression('//selectors');
