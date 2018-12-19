@@ -1,10 +1,11 @@
 'use strict';
 
-const dom = require('../_occam-dom'),  ///
+const dom = require('occam-dom'),  ///
       necessary = require('necessary');
 
 const { arrayUtilities } = necessary,
-      { Query, asContent } = dom,
+      { Query, nodeUtilities } = dom,
+      { asContent } = nodeUtilities,
       { unshift } = arrayUtilities;
 
 const declarationQuery = Query.fromExpression('/*/declaration');

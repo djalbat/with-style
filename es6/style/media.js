@@ -1,13 +1,14 @@
 'use strict';
 
-const dom = require('../_occam-dom'),  ///
+const dom = require('occam-dom'),  ///
       necessary = require('necessary');
 
 const RuleSets = require('./ruleSets'),
       Declarations = require('./declarations');
 
 const { arrayUtilities } = necessary,
-      { Query, asContent } = dom,
+      { Query, nodeUtilities } = dom,
+      { asContent } = nodeUtilities,
       { first } = arrayUtilities;
 
 const mediaQueriesQuery = Query.fromExpression('/media/mediaQueries');
