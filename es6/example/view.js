@@ -56,7 +56,7 @@ class View extends Element {
     return ([
 
       <h1>
-        CSS Example
+        CSS example
       </h1>,
       <div className="columns">
         <SizeableElement>
