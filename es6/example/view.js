@@ -20,14 +20,14 @@ class View extends Element {
   getParseTree() {
     let parseTree = null;
 
-    const lexicalEntries = this.getLexicalEntries(),
-			    bnf = this.getBNF(),
-			    entries = lexicalEntries, ///
-			    lexer = CSSLexer.fromEntries(entries),
-          parser = CSSParser.fromBNF(bnf),
+    const bnf = this.getBNF(),
           content = this.getContent(),
-          tokens = lexer.tokenise(content),
-          node = parser.parse(tokens);
+          lexicalEntries = this.getLexicalEntries(),
+          entries = lexicalEntries, ///
+			    cssLexer = CSSLexer.fromEntries(entries),
+          cssParser = CSSParser.fromBNF(bnf),
+          tokens = cssLexer.tokenise(content),
+          node = cssParser.parse(tokens);
 
     if (node !== null) {
       parseTree = node.asParseTree(tokens);
@@ -81,8 +81,8 @@ class View extends Element {
     this.assignContext();
 
     const initialContent = '',
-          bnf = cssBNF, ///
           entries = cssEntries, ///
+          bnf = cssBNF, ///
           content = initialContent, ///
           lexicalEntries = entries; ///
 
