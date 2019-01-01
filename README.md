@@ -2,7 +2,7 @@
 
 Programmatic styles support.
 
-This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style). You will never need to install this directly as a dependency of your project. However, you might wish to install it in order to try out the example.
+This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style). There is no need to install it directly as a dependency of your project. However, you might wish to clone it in order to try out the example.
 
 ## Installation
 
@@ -20,19 +20,27 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
 You will need to do this if you want to look at the example.
 
+## Usage
+
+```js
+const stylesSupport = require('with-style');  ///
+
+const { tagNames, classUtilities, stylesUtilities, classNameUtilities } = stylesSupport;
+
+const { isClass } = classUtilities,
+      { generateClassName, retrieveClassName } = classNameUtilities,
+      { renderStyles, generateStyle, retrieveStyle } = stylesUtilities;
+
+...
+```
+
 ## Example
 
-Not an example as such.
-It allows you to test out CSS against the built-in CSS lexer and parser.
-This is the first port of call should you suspect that your CSS is not being parsed correctly.
-Both the lexical entries and BNF that make up the CSS grammar can be altered on the fly.
-Pull requests are welcome for improvements to either.
+Not an example as such. It allows you to test out CSS against the built-in CSS lexer and parser. This is the first port of call should you suspect that your CSS is not being parsed correctly. Both the lexical entries and BNF that make up the CSS grammar can be altered on the fly. Pull requests are welcome for improvements to either.
 
 ## What CSS is supported?
 
-Not all of it.
-You cannot, for example, make references to child elements at all.
-In the style for the `Header` component, for example, you would not be able to style the child `Link` component as follows:
+Not all of it. You cannot, for example, make references to child elements at all. In the style for the `Header` component, for example, you would not be able to style the child `Link` component as follows:
 
 ```css
 ...
