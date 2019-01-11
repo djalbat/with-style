@@ -20,4 +20,6 @@ function asContent(node, tokens) {
   return content;
 }
 
-module.exports = asContent;
+module.exports = {
+  asContent
+};
