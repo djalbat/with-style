@@ -4,12 +4,13 @@ const dom = require('occam-dom'),  ///
       necessary = require('necessary');
 
 const RuleSets = require('./ruleSets'),
-      Declarations = require('./declarations');
+      Declarations = require('./declarations'),
+      nodeUtilities = require('../utilities/node');
 
 const { arrayUtilities } = necessary,
-      { Query, nodeUtilities } = dom,
-      { asContent } = nodeUtilities,
-      { first } = arrayUtilities;
+      { Query } = dom,
+      { first } = arrayUtilities,
+      { asContent } = nodeUtilities;
 
 const mediaQueriesQuery = Query.fromExpression('/media/mediaQueries');
 

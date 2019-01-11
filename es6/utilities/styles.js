@@ -30,7 +30,7 @@ function generateStyle(args, className, superStyle = null) {
           const arg = args[index];
 
           content = `${content}${cssString}${arg}`;
-          
+
           return content;
         }, ''),
         tokens = cssLexer.tokenise(content),

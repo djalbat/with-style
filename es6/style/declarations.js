@@ -3,10 +3,12 @@
 const dom = require('occam-dom'),  ///
       necessary = require('necessary');
 
+const nodeUtilities = require('../utilities/node');
+
 const { arrayUtilities } = necessary,
-      { Query, nodeUtilities } = dom,
-      { asContent } = nodeUtilities,
-      { unshift } = arrayUtilities;
+      { Query } = dom,
+      { unshift } = arrayUtilities,
+      { asContent } = nodeUtilities;
 
 const declarationQuery = Query.fromExpression('/*/declaration');
 
