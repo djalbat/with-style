@@ -29,18 +29,8 @@ function generateStyle(args, className, superStyle = null) {
         content = strings.reduce(function(content, cssString, index) {
           const arg = args[index];
 
-          content += cssString;
-
-          switch (typeof arg) {
-            case 'string':
-              content += arg;
-              break;
-
-            case 'function':
-              content += arg();
-              break;
-          }
-
+          content = `${content}${cssString}${arg}`;
+          
           return content;
         }, ''),
         tokens = cssLexer.tokenise(content),
