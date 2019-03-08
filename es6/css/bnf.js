@@ -66,7 +66,7 @@ const cssBNF = `
 
                                          verticalSpace?
 
-                                         ( [identifier] | [stringLiteral] )
+                                         ( [identifier] | [string-literal] )
 
                                          verticalSpace?
 
@@ -105,7 +105,7 @@ const cssBNF = `
                                                        
                                         |
                                                        
-                                        [stringLiteral]
+                                        [string-literal]
                                                        
                                         |
                                                        
@@ -120,7 +120,7 @@ const cssBNF = `
                                    ;
 
 
-    uri                        ::=  "url"<NO_WHITESPACE>"(" [stringLiteral] ")" ;
+    uri                        ::=  "url"<NO_WHITESPACE>"(" [string-literal] ")" ;
 
 
     function                   ::=  [identifier]<NO_WHITESPACE>"(" expression ")" ;
