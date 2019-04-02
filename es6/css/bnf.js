@@ -105,7 +105,7 @@ const cssBNF = `
                                                        
                                         |
                                                        
-                                        [string-literal]
+                                        ( [string-literal] ( verticalSpace? [string-literal] )* )
                                                        
                                         |
                                                        
