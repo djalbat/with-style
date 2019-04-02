@@ -26,10 +26,12 @@ ${stylesCSS}`,
 
 function generateStyle(args, className, superStyle = null) {
   const strings = args.shift(),	///
-        content = strings.reduce(function(content, cssString, index) {
+        content = strings.reduce(function(content, string, index) {
           const arg = args[index];
 
-          content = `${content}${cssString}${arg}`;
+          content = (arg !== undefined) ?
+                      `${content}${string}${arg}` :
+                        `${content}${string}`;
 
           return content;
         }, ''),
