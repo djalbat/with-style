@@ -1,7 +1,7 @@
 {
   "name": "with-style",
   "author": "James Smith",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "license": "MIT",
   "homepage": "https://github.com/djalbat/with-style",
   "description": "Programmatic styles support.",
