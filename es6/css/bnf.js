@@ -29,8 +29,8 @@ const cssBNF = `
 
 
     ruleSet                    ::=  selectors "{" ( declaration | verticalSpace )* "}" verticalSpace? ;
-
-
+    
+    
     selectors                  ::=  selector ( "," verticalSpace? selector )* ;
 
 
@@ -43,13 +43,16 @@ const cssBNF = `
     declaration                ::=  property ":" verticalSpace? expression ( "," verticalSpace? expression )* priority? ";" ;
 
 
-    class                      ::=  "."<NO_WHITESPACE>[identifier]<NO_WHITESPACE>( "(" selector ")" )? ;
+    class                      ::=  "."<NO_WHITESPACE>[identifier] parenthesisedSelector? ;
 
 
-    pseudoClass                ::=  ":"<NO_WHITESPACE>[identifier]<NO_WHITESPACE>( "(" selector ")" )? ;
+    pseudoClass                ::=  ":"<NO_WHITESPACE>[identifier] parenthesisedSelector? ;
 
 
-    pseudoElement              ::=  "::"<NO_WHITESPACE>[identifier]<NO_WHITESPACE>( "(" selector ")" )? ;
+    pseudoElement              ::=  "::"<NO_WHITESPACE>[identifier] parenthesisedSelector? ;
+
+
+    parenthesisedSelector      ::=  <NO_WHITESPACE>"(" selector <NO_WHITESPACE>")" ;
 
 
     attribute                  ::=  "["
@@ -89,7 +92,7 @@ const cssBNF = `
 
 
 
-    term                       ::=  [unaryOperator]?
+    term                       ::=  [unary-operator]?
                                                        
                                       (
                                                        

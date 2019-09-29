@@ -4,10 +4,10 @@ const lexers = require('occam-lexers');
 
 const entries = require('./entries');
 
-const { CommonLexer, SignificantEndOfLineTokens } = lexers;
+const { CommonLexer, EndOfLineSignificantToken } = lexers;
 
 class CSSLexer extends CommonLexer {
-  tokeniseEndOfLines(tokensOrContents) { SignificantEndOfLineTokens.tokenise(tokensOrContents); }
+  tokeniseEndOfLines(content) { return super.tokeniseEndOfLines(content, EndOfLineSignificantToken); }
 
   tokeniseRegularExpressions(tokensOrContents) {}
 
