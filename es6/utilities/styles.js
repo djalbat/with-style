@@ -47,7 +47,7 @@ function generateStyle(args, className, superStyle = null) {
 }
 
 function retrieveStyle(className) {
-  const style = styleMap[className];
+  const style = styleMap[className] || null;
 
   return style;
 }
