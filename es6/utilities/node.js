@@ -1,6 +1,6 @@
 'use strict';
 
-function asContent(node, tokens) {
+export function asContent(node, tokens) {
   const firstSignificantToken = node.getFirstSignificantToken(),
         lastSignificantToken = node.getLastSignificantToken(),
         firstToken = firstSignificantToken, ///

@@ -15,14 +15,14 @@ const uuid = uuidV4(), ///
 
 let randomNumber = random(randomNumberMaximum);
 
-function generateClassName() {
+export function generateClassName() {
   const hash = hashids.encode(randomNumber++),
         className = hash; ///
 
   return className;
 }
 
-function retrieveClassName(element) {
+export function retrieveClassName(element) {
   const { className } = element.reactFunction || element.reactComponent.constructor;
 
   return className;
