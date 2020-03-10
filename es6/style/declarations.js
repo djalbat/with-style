@@ -1,18 +1,15 @@
 'use strict';
 
-const dom = require('occam-dom'),  ///
-      necessary = require('necessary');
+import { Query } from 'occam-dom';
+import { arrayUtilities } from 'necessary';
 
-const nodeUtilities = require('../utilities/node');
+import { asContent } from '../utilities/node';
 
-const { arrayUtilities } = necessary,
-      { Query } = dom,
-      { unshift } = arrayUtilities,
-      { asContent } = nodeUtilities;
+const { unshift } = arrayUtilities;
 
 const declarationQuery = Query.fromExpression('/*/declaration');
 
-class Declarations {
+export default class Declarations {
   constructor(array) {
     this.array = array;
   }
@@ -35,7 +32,7 @@ class Declarations {
     if (length > 0) {
       const lastIndex = length - 1;
 
-      this.array.forEach(function(declaration, index) {
+      this.array.forEach((declaration, index) => {
         const declarationCSS = (index === lastIndex) ?
                                 `${indent}${declaration}` :
                                   `${indent}${declaration}\n`;
@@ -49,7 +46,7 @@ class Declarations {
 
   static fromNodeAndTokens(node, tokens) {
     const declarationNodes = declarationQuery.execute(node),
-          array = declarationNodes.map(function(declarationNode) {
+          array = declarationNodes.map((declarationNode) => {
             const declarationNodeContent = asContent(declarationNode, tokens),
                   declaration = declarationNodeContent; ///
 
@@ -60,5 +57,3 @@ class Declarations {
     return declarations;
   }
 }
-
-module.exports = Declarations;

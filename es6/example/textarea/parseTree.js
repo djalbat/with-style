@@ -1,10 +1,8 @@
 'use strict';
 
-const easy = require('easy');
+import { InputElement } from 'easy';
 
-const { InputElement } = easy;
-
-class ParseTreeTextarea extends InputElement {
+export default class ParseTreeTextarea extends InputElement {
   setParseTree(parseTree) {
     if (parseTree !== null) {
       parseTree.shiftLine();  //
@@ -45,5 +43,3 @@ Object.assign(ParseTreeTextarea, {
     readOnly: true
   }
 });
-
-module.exports = ParseTreeTextarea;

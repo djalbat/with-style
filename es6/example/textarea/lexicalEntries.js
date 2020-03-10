@@ -1,10 +1,8 @@
 'use strict';
 
-const easy = require('easy');
+import { InputElement } from 'easy';
 
-const { InputElement } = easy;
-
-class LexicalEntriesTextarea extends InputElement {
+export default class LexicalEntriesTextarea extends InputElement {
   constructor(selector, changeHandler, keyUpHandler) {
     super(selector, changeHandler);
 
@@ -50,5 +48,3 @@ Object.assign(LexicalEntriesTextarea, {
     spellCheck: 'false'
   }
 });
-
-module.exports = LexicalEntriesTextarea;

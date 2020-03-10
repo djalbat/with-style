@@ -1,17 +1,14 @@
 'use strict';
 
-const lexers = require('occam-lexers'),
-      parsers = require('occam-parsers');
+import { BNFLexer } from 'occam-lexers';
+import { BNFParser, CommonParser } from 'occam-parsers';
 
-const bnf = require('./bnf');
-
-const { BNFLexer } = lexers,
-      { BNFParser, CommonParser } = parsers;
+import bnf from './bnf';
 
 const bnfLexer = BNFLexer.fromNothing(),
       bnfParser = BNFParser.fromNothing();
 
-class CSSParser extends CommonParser {
+export default class CSSParser extends CommonParser {
   static fromBNF(bnf) {
     const tokens = bnfLexer.tokensFromBNF(bnf),
           rules = bnfParser.rulesFromTokens(tokens),
@@ -30,5 +27,3 @@ class CSSParser extends CommonParser {
 Object.assign(CSSParser, {
   bnf
 });
-
-module.exports = CSSParser;

@@ -1,17 +1,15 @@
 'use strict';
 
-const dom = require('occam-dom'),  ///
-      necessary = require('necessary');
+import { Query } from 'occam-dom';
+import { arrayUtilities } from 'necessary';
 
-const RuleSet = require('./ruleSet');
+import RuleSet from './ruleSet';
 
-const { arrayUtilities } = necessary,
-      { Query } = dom,
-      { unshift } = arrayUtilities;
+const { unshift } = arrayUtilities;
 
 const ruleSetQuery = Query.fromExpression('/*/ruleSet');
 
-class RuleSets {
+export default class RuleSets {
   constructor(array) {
     this.array = array;
   }
@@ -27,7 +25,7 @@ class RuleSets {
   }
 
   asCSS(className, indent) {
-    const css = this.array.reduce(function(css, ruleSet) {
+    const css = this.array.reduce((css, ruleSet) => {
       const ruleSetCSS = ruleSet.asCSS(className, indent);
 
       css += ruleSetCSS;
@@ -40,7 +38,7 @@ class RuleSets {
 
   static fromNodeAndTokens(node, tokens) {
     const ruleSetNodes = ruleSetQuery.execute(node),
-          array = ruleSetNodes.map(function(ruleSetNode) {
+          array = ruleSetNodes.map((ruleSetNode) => {
             const node = ruleSetNode, ///
                   ruleSet = RuleSet.fromNodeAndTokens(node, tokens);
 
@@ -51,5 +49,3 @@ class RuleSets {
     return ruleSets;
   }
 }
-
-module.exports = RuleSets;

@@ -23,9 +23,7 @@ You will need to do this if you want to look at the example.
 ## Usage
 
 ```js
-const stylesSupport = require('with-style');  ///
-
-const { tagNames, classUtilities, stylesUtilities, classNameUtilities } = stylesSupport;
+import { tagNames, classUtilities, stylesUtilities, classNameUtilities } from 'with-style';
 
 const { isClass } = classUtilities,
       { generateClassName, retrieveClassName } = classNameUtilities,
@@ -77,7 +75,7 @@ class MarkdownViewer extends React.Component {
   }
 }
 
-module.exports = withStyle(MarkdownViewer)`
+export default withStyle(MarkdownViewer)`
 
   ...
 

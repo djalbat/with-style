@@ -1,12 +1,10 @@
 'use strict';
 
-const lexers = require('occam-lexers');
+import { CommonLexer, EndOfLineSignificantToken } from 'occam-lexers';
 
-const entries = require('./entries');
+import entries from './entries';
 
-const { CommonLexer, EndOfLineSignificantToken } = lexers;
-
-class CSSLexer extends CommonLexer {
+export default class CSSLexer extends CommonLexer {
   tokeniseEndOfLines(content) { return super.tokeniseEndOfLines(content, EndOfLineSignificantToken); }
 
   matchBrokenComment(content, inComment) { return null; }
@@ -27,5 +25,3 @@ class CSSLexer extends CommonLexer {
 Object.assign(CSSLexer, {
   entries
 });
-
-module.exports = CSSLexer;

@@ -1,22 +1,19 @@
 'use strict';
 
-const easy = require('easy'),
-      easyLayout = require('easy-layout');
+import { Element } from 'easy';
+import { SizeableElement } from 'easy-layout';
 
-const cssBNF = require('../css/bnf'),
-      CSSLexer = require('../css/lexer'),
-      CSSParser = require('../css/parser'),
-      cssEntries = require('../css/entries'),
-      BNFTextarea = require('./textarea/bnf'),
-      ContentTextarea = require('./textarea/content'),
-      ParseTreeTextarea = require('./textarea/parseTree'),
-      MainVerticalSplitter = require('./verticalSplitter/main'),
-      LexicalEntriesTextarea = require('./textarea/lexicalEntries');
+import cssBNF from '../css/bnf';
+import CSSLexer from '../css/lexer';
+import CSSParser from '../css/parser';
+import cssEntries from '../css/entries';
+import BNFTextarea from './textarea/bnf';
+import ContentTextarea from './textarea/content';
+import ParseTreeTextarea from './textarea/parseTree';
+import MainVerticalSplitter from './verticalSplitter/main';
+import LexicalEntriesTextarea from './textarea/lexicalEntries';
 
-const { Element } = easy,
-      { SizeableElement } = easyLayout;
-
-class View extends Element {
+export default class View extends Element {
   getParseTree() {
     let parseTree = null;
 
@@ -37,17 +34,17 @@ class View extends Element {
   }
 
   keyUpHandler() {
-    // try {
+    try {
       const parseTree = this.getParseTree();
 
       this.hideError();
 
       this.setParseTree(parseTree);
-    // } catch (error) {
-    //   this.showError();
-    //
-    //   this.clearParseTree();
-    // }
+    } catch (error) {
+      this.showError();
+
+      this.clearParseTree();
+    }
   }
 
   childElements(properties) {
@@ -108,5 +105,3 @@ Object.assign(View, {
     className: 'view'
   }
 });
-
-module.exports = View;

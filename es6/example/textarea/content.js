@@ -1,10 +1,8 @@
 'use strict';
 
-const easy = require('easy');
+import { InputElement } from 'easy';
 
-const { InputElement } = easy;
-
-class ContentTextarea extends InputElement {
+export default class ContentTextarea extends InputElement {
   getContent() {
     const value = this.getValue(),
           content = value; ///
@@ -50,5 +48,3 @@ Object.assign(ContentTextarea, {
     spellCheck: 'false'
   }
 });
-
-module.exports = ContentTextarea;

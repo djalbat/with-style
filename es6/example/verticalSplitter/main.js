@@ -1,10 +1,8 @@
 'use strict';
 
-const easylayout = require('easy-layout');
+import { Splitter, VerticalSplitter } from 'easy-layout';
 
-const { Splitter, VerticalSplitter } = easylayout;
-
-class MainVerticalSplitter extends VerticalSplitter {
+export default class MainVerticalSplitter extends VerticalSplitter {
   static fromProperties(properties) {
     const afterSizeableElement = true;
 
@@ -21,5 +19,3 @@ Object.assign(MainVerticalSplitter, {
     className: 'main'
   }
 });
-
-module.exports = MainVerticalSplitter;

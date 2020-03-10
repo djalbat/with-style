@@ -1,19 +1,17 @@
 'use strict';
 
-const dom = require('occam-dom'),  ///
-      necessary = require('necessary');
+import { Query } from 'occam-dom';
+import { arrayUtilities } from 'necessary';
 
-const Declarations = require('./declarations'),
-      nodeUtilities = require('../utilities/node');
+import Declarations from './declarations';
 
-const { arrayUtilities } = necessary,
-      { Query } = dom,
-      { first } = arrayUtilities,
-      { asContent } = nodeUtilities;
+import { asContent } from '../utilities/node';
+
+const { first } = arrayUtilities;
 
 const selectorsQuery = Query.fromExpression('//selectors');
 
-class RuleSet {
+export default class RuleSet {
   constructor(selectors, declarations) {
     this.selectors = selectors;
     this.declarations = declarations;
@@ -38,8 +36,6 @@ ${indent}}
     return media;
   }
 }
-
-module.exports = RuleSet;
 
 function selectorsFromNodeAndTokens(node, tokens) {
   const selectorsNodes = selectorsQuery.execute(node),

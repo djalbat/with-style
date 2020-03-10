@@ -1,10 +1,8 @@
 'use strict';
 
-const easy = require('easy');
+import { InputElement } from 'easy';
 
-const { InputElement } = easy;
-
-class BNFTextarea extends InputElement {
+export default class BNFTextarea extends InputElement {
   getBNF() {
     const value = this.getValue(),
           bnf = value;  ///
@@ -38,5 +36,3 @@ Object.assign(BNFTextarea, {
     spellCheck: 'false'
   }
 });
-
-module.exports = BNFTextarea;

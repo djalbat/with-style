@@ -1,13 +1,12 @@
 'use strict';
 
-const uuidV4 = require('uuid/v4'),
-      Hashids = require('hashids'),
-      randomSeed = require('random-seed');
+import uuidV4 from 'uuid/v4';
+import Hashids from 'hashids';
+import randomSeed from 'random-seed';
 
-const constants = require('../constants');
+import { ALPHABET, CLASSNAME_LENGTH, RANDOM_NUMBER_MAXIMUM } from '../constants';
 
-const { ALPHABET, CLASSNAME_LENGTH, RANDOM_NUMBER_MAXIMUM } = constants,
-      uuid = uuidV4(), ///
+const uuid = uuidV4(), ///
       random = randomSeed.create(uuid),
       length = CLASSNAME_LENGTH,
       alphabet = ALPHABET,
@@ -16,20 +15,15 @@ const { ALPHABET, CLASSNAME_LENGTH, RANDOM_NUMBER_MAXIMUM } = constants,
 
 let randomNumber = random(randomNumberMaximum);
 
-function generateClassName() {
+export function generateClassName() {
   const hash = hashids.encode(randomNumber++),
         className = hash; ///
 
   return className;
 }
 
-function retrieveClassName(element) {
+export function retrieveClassName(element) {
   const { className } = element.reactFunction || element.reactComponent.constructor;
 
   return className;
 }
-
-module.exports = {
-  generateClassName,
-  retrieveClassName
-};

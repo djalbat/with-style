@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+const tagNames = [
   'a', 'abbr', 'address', 'aside', 'audio',
   'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button',
   'canvas', 'caption', 'cite', 'code', 'col', 'colgroup',
@@ -17,3 +17,5 @@ module.exports = [
   'var', 'video',
   'wbr'
 ];
+
+export default tagNames;

@@ -1,14 +1,8 @@
 'use strict';
 
-const reaction = require('reaction');
+import { React } from 'reaction';
 
-const { React } = reaction;
-
-function isClass(argument) { return isSubclassOf(argument, React.Component); }  ///
-
-module.exports = {
-  isClass
-};
+export function isClass(argument) { return isSubclassOf(argument, React.Component); }  ///
 
 function isSubclassOf(argument, Class) {
   let subclass = false;

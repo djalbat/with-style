@@ -34,4 +34,4 @@ const cssEntries = [
 
 ];
 
-module.exports = cssEntries;
+export default cssEntries;

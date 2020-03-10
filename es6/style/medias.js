@@ -1,17 +1,15 @@
 'use strict';
 
-const dom = require('occam-dom'),  ///
-      necessary = require('necessary');
+import { Query } from 'occam-dom';
+import { arrayUtilities } from 'necessary';
 
-const Media = require('./media');
+import Media from './media';
 
-const { arrayUtilities } = necessary,
-      { Query } = dom,
-      { unshift } = arrayUtilities;
+const { unshift } = arrayUtilities;
 
 const mediaQuery = Query.fromExpression('/stylesheet/media');
 
-class Medias {
+export default class Medias {
   constructor(array) {
     this.array = array;
   }
@@ -27,7 +25,7 @@ class Medias {
   }
 
   asCSS(className) {
-    const css = this.array.reduce(function(css, media) {
+    const css = this.array.reduce((css, media) => {
       const mediaCSS = media.asCSS(className);
 
       css += mediaCSS;
@@ -40,7 +38,7 @@ class Medias {
 
   static fromNodeAndTokens(node, tokens) {
     const mediaNodes = mediaQuery.execute(node),
-          array = mediaNodes.map(function(mediaNode) {
+          array = mediaNodes.map((mediaNode) => {
             const node = mediaNode, ///
                   media = Media.fromNodeAndTokens(node, tokens);
 
@@ -51,5 +49,3 @@ class Medias {
     return medias;
   }
 }
-
-module.exports = Medias;

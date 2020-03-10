@@ -1,10 +1,10 @@
 'use strict';
 
-const Medias = require('./style/medias'),
-      RuleSets = require('./style/ruleSets'),
-      Declarations = require('./style/declarations');
+import Medias from './style/medias';
+import RuleSets from './style/ruleSets';
+import Declarations from './style/declarations';
 
-class Style {
+export default class Style {
   constructor(declarations, ruleSets, medias) {
     this.declarations = declarations;
     this.ruleSets = ruleSets;
@@ -59,5 +59,3 @@ ${ruleSetsCSS}${mediasCSS}`;
     return style;
   }
 }
-
-module.exports = Style;

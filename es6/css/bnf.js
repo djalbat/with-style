@@ -144,4 +144,4 @@ const cssBNF = `
 
 `;
 
-module.exports = cssBNF;
+export default cssBNF;
