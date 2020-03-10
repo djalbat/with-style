@@ -2,9 +2,9 @@
 
 import tagNames from './tagNames';
 
-export { isClass } from './utilities/class';
-export { generateClassName, retrieveClassName } from './utilities/className';
-export { renderStyles, generateStyle, retrieveStyle } from './utilities/styles';
+import { isClass } from './utilities/class';
+import { generateClassName, retrieveClassName } from './utilities/className';
+import { renderStyles, generateStyle, retrieveStyle } from './utilities/styles';
 
 const classUtilities = {
   isClass
