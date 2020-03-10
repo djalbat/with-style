@@ -1,13 +1,6 @@
 'use strict';
 
-import tagNames from '../lib/tagNames';
-import classUtilities from '../lib/utilities/class';
-import stylesUtilities from '../lib/utilities/styles';
-import classNameUtilities from '../lib/utilities/className';
-
-export {
-  tagNames,
-  classUtilities,
-  stylesUtilities,
-  classNameUtilities
-};
+export {default as tagNames} from './tagNames';
+export {default as classUtilities} from './utilities/class';
+export {default as stylesUtilities} from './utilities/styles';
+export {default as classNameUtilities} from './utilities/className';

@@ -21,7 +21,7 @@ export default class View extends Element {
           content = this.getContent(),
           lexicalEntries = this.getLexicalEntries(),
           entries = lexicalEntries, ///
-			    cssLexer = CSSLexer.fromEntries(entries),
+          cssLexer = CSSLexer.fromEntries(entries),
           cssParser = CSSParser.fromBNF(bnf),
           tokens = cssLexer.tokenise(content),
           node = cssParser.parse(tokens);
@@ -57,16 +57,24 @@ export default class View extends Element {
       </h1>,
       <div className="columns">
         <SizeableElement>
-          <h2>Lexical entries</h2>
+          <h2>
+            Lexical entries
+          </h2>
           <LexicalEntriesTextarea onKeyUp={keyUpHandler} />
-          <h2>BNF</h2>
+          <h2>
+            BNF
+          </h2>
           <BNFTextarea onKeyUp={keyUpHandler} />
         </SizeableElement>
         <MainVerticalSplitter />
         <div className="column">
-          <h2>Parse tree</h2>
+          <h2>
+            Parse tree
+          </h2>
           <ParseTreeTextarea />
-          <h2>Content</h2>
+          <h2>
+            Content
+          </h2>
           <ContentTextarea onKeyUp={keyUpHandler} />
         </div>
       </div>

@@ -9,7 +9,7 @@ const cssLexer = CSSLexer.fromNothing(),
 
 const styleMap = {};
 
-export function renderStyles() {
+function renderStyles() {
   const stylesCSS = retrieveStylesCSS(),
         innerHTML = `
         
@@ -24,7 +24,7 @@ ${stylesCSS}`,
   headDOMElement.appendChild(styleDOMElement);
 }
 
-export function generateStyle(args, className, superStyle = null) {
+function generateStyle(args, className, superStyle = null) {
   const strings = args.shift(),	///
         content = strings.reduce((content, string, index) => {
           const arg = args[index];
@@ -46,13 +46,13 @@ export function generateStyle(args, className, superStyle = null) {
         styleMap[className] = style;
 }
 
-export function retrieveStyle(className) {
+function retrieveStyle(className) {
   const style = styleMap[className] || null;
 
   return style;
 }
 
-module.exports = {
+export default {
   renderStyles,
   generateStyle,
   retrieveStyle
