@@ -1,8 +1,13 @@
 'use strict';
 
-module.exports = {
-  tagNames: require('./lib/tagNames'),
-  classUtilities: require('./lib/utilities/class'),
-  stylesUtilities: require('./lib/utilities/styles'),
-  classNameUtilities: require('./lib/utilities/className'),
+import tagNames from './lib/tagNames';
+import classUtilities from './lib/utilities/class';
+import stylesUtilities from './lib/utilities/styles';
+import classNameUtilities from './lib/utilities/className';
+
+export {
+  tagNames,
+  classUtilities,
+  stylesUtilities,
+  classNameUtilities
 };
