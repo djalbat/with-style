@@ -3,9 +3,10 @@
 import { Query } from 'occam-dom';
 import { arrayUtilities } from 'necessary';
 
-import { asContent } from '../utilities/node';
+import nodeUtilities from '../utilities/node';
 
-const { unshift } = arrayUtilities;
+const { unshift } = arrayUtilities,
+      { asContent } = nodeUtilities;
 
 const declarationQuery = Query.fromExpression('/*/declaration');
 
