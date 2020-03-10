@@ -19,7 +19,3 @@ export function asContent(node, tokens) {
 
   return content;
 }
-
-export default {
-  asContent
-};

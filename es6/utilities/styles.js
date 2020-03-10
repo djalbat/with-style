@@ -52,12 +52,6 @@ export function retrieveStyle(className) {
   return style;
 }
 
-export default {
-  renderStyles,
-  generateStyle,
-  retrieveStyle
-};
-
 function retrieveStylesCSS() {
   const classNames = Object.keys(styleMap),
         stylesCSS = classNames.reduce((stylesCSS, className) => {

@@ -27,8 +27,3 @@ export function retrieveClassName(element) {
 
   return className;
 }
-
-export default {
-  generateClassName,
-  retrieveClassName
-}

@@ -1,6 +1,28 @@
 'use strict';
 
-export {default as tagNames} from './tagNames';
-export {default as classUtilities} from './utilities/class';
-export {default as stylesUtilities} from './utilities/styles';
-export {default as classNameUtilities} from './utilities/className';
+import tagNames from './tagNames';
+
+export { isClass } from './utilities/class';
+export { generateClassName, retrieveClassName } from './utilities/className';
+export { renderStyles, generateStyle, retrieveStyle } from './utilities/styles';
+
+const classUtilities = {
+  isClass
+};
+
+const stylesUtilities = {
+  renderStyles,
+  generateStyle,
+  retrieveStyle
+};
+
+const classNameUtilities = {
+  generateClassName, retrieveClassName
+};
+
+export default {
+  tagNames,
+  classUtilities,
+  stylesUtilities,
+  classNameUtilities
+};
