@@ -4,6 +4,10 @@ import { React } from 'reaction';
 
 export function isClass(argument) { return isSubclassOf(argument, React.Component); }  ///
 
+export default {
+  isClass
+};
+
 function isSubclassOf(argument, Class) {
   let subclass = false;
 
