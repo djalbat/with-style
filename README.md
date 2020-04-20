@@ -93,32 +93,32 @@ Now you could create an external style sheet for styling the rendered HTML:
 Other than this restriction, most of standard CSS is supported. All of the following CSS is fine, for example:
 
 ```
-  color: ${black};
-  border: ${border};
-  display: block;
-  position: relative;
+color: ${black};
+border: ${border};
+display: block;
+position: relative;
 
-  .error {
-    border-color: ${fiery};
-  }
+.error {
+  border-color: ${fiery};
+}
 
-  :disabled {
-    background-color: ${white};
-  }
+:disabled {
+  background-color: ${white};
+}
 
-  ::after {
-    content: "×";
-    position: absolute;
-    font-family: monospace;
-  }
+::after {
+content: "×";
+position: absolute;
+  font-family: monospace;
+}
 
-  [readonly] {
-    color: ${shuttle};
-  }
+[readonly] {
+  color: ${shuttle};
+}
 
-  @media (min-width: ${desktop}) {
-    margin: 0;
-  }
+@media (min-width: ${desktop}) {
+  margin: 0;
+}
 ```
 Note that all of the selectors, including the class selector, relate to the the component's outermost rendered element.
 
