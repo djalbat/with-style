@@ -38,13 +38,12 @@ export default class ContentTextarea extends InputElement {
     });
   }
 
-  static fromProperties(properties) { return InputElement.fromProperties(ContentTextarea, properties); }
-}
+  static tagName = 'textarea';
 
-Object.assign(ContentTextarea, {
-  tagName: 'textarea',
-  defaultProperties: {
+  static defaultProperties = {
     className: 'content',
     spellCheck: 'false'
-  }
-});
+  };
+
+  static fromProperties(properties) { return InputElement.fromProperties(ContentTextarea, properties); }
+}

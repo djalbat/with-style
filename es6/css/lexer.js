@@ -1,11 +1,11 @@
 'use strict';
 
-import { CommonLexer, EndOfLineSignificantToken } from 'occam-lexers';
+import { CommonLexer, EndOfLineNonSignificantToken } from 'occam-lexers';
 
 import entries from './entries';
 
 export default class CSSLexer extends CommonLexer {
-  tokeniseEndOfLines(content) { return super.tokeniseEndOfLines(content, EndOfLineSignificantToken); }
+  tokeniseEndOfLines(content) { return super.tokeniseEndOfLines(content, EndOfLineNonSignificantToken); }
 
   matchBrokenComment(content, inComment) { return null; }
 
@@ -17,11 +17,9 @@ export default class CSSLexer extends CommonLexer {
 
   matchRegularExpression(content) { return null; }
 
+  static entries = entries;
+
   static fromEntries(entries) { return CommonLexer.fromEntries(CSSLexer, entries); }
 
   static fromNothing() { return CommonLexer.fromNothing(CSSLexer); }
 }
-
-Object.assign(CSSLexer, {
-  entries
-});

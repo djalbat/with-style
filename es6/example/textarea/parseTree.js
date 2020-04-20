@@ -32,14 +32,13 @@ export default class ParseTreeTextarea extends InputElement {
     });
   }
 
-  static fromProperties(properties) { return InputElement.fromProperties(ParseTreeTextarea, properties); }
-}
+  static tagName = 'textarea';
 
-Object.assign(ParseTreeTextarea, {
-  tagName: 'textarea',
-  defaultProperties: {
+  static defaultProperties = {
     className: 'parse-tree',
     spellCheck: 'false',
     readOnly: true
-  }
-});
+  };
+
+  static fromProperties(properties) { return InputElement.fromProperties(ParseTreeTextarea, properties); }
+}

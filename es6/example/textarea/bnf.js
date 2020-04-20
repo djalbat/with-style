@@ -26,13 +26,12 @@ export default class BNFTextarea extends InputElement {
     });
   }
 
-  static fromProperties(properties) { return InputElement.fromProperties(BNFTextarea, properties); }
-}
+  static tagName = 'textarea';
 
-Object.assign(BNFTextarea, {
-  tagName: 'textarea',
-  defaultProperties: {
+  static defaultProperties = {
     className: 'bnf',
     spellCheck: 'false'
-  }
-});
+  };
+
+  static fromProperties(properties) { return InputElement.fromProperties(BNFTextarea, properties); }
+}

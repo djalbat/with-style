@@ -38,13 +38,12 @@ export default class LexicalEntriesTextarea extends InputElement {
     });
   }
 
-  static fromProperties(properties) { return InputElement.fromProperties(LexicalEntriesTextarea, properties); }
-}
+  static tagName = 'textarea';
 
-Object.assign(LexicalEntriesTextarea, {
-  tagName: 'textarea',
-  defaultProperties: {
+  static defaultProperties = {
     className: 'lexical-entries',
     spellCheck: 'false'
-  }
-});
+  };
+
+  static fromProperties(properties) { return InputElement.fromProperties(LexicalEntriesTextarea, properties); }
+}

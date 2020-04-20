@@ -98,6 +98,12 @@ export default class View extends Element {
     this.keyUpHandler();
   }
 
+  static tagName = 'div';
+
+  static defaultProperties = {
+    className: 'view'
+  };
+
   static fromProperties(properties) {
     const view = Element.fromProperties(View, properties);
 
@@ -106,10 +112,3 @@ export default class View extends Element {
     return view
   }
 }
-
-Object.assign(View, {
-  tagName: 'div',
-  defaultProperties: {
-    className: 'view'
-  }
-});

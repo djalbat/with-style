@@ -4,16 +4,16 @@ const cssBNF = `
 
 
 
-    stylesheet                 ::= ( media | ruleSet | declaration | verticalSpace | error )+ ;
+    stylesheet                 ::= ( media | ruleSet | declaration | error )+ ;
 
 
 
 
 
-    media                      ::= "@media" mediaQueries "{" ( ruleSet | declaration | verticalSpace )* "}" verticalSpace? ;
+    media                      ::= "@media" mediaQueries "{" ( ruleSet | declaration )* "}" ;
                                                               
                                                               
-    mediaQueries               ::=  mediaQuery ( "," verticalSpace? mediaQuery )* ;
+    mediaQueries               ::=  mediaQuery ( "," mediaQuery )* ;
                                                               
                                                               
     mediaQuery                 ::=  "not"? ( "only"? mediaType "and" )? mediaExpression ( "and" mediaExpression )* ;
@@ -28,10 +28,10 @@ const cssBNF = `
 
 
 
-    ruleSet                    ::=  selectors "{" ( declaration | verticalSpace )* "}" verticalSpace? ;
+    ruleSet                    ::=  selectors "{" declaration* "}" ;
     
     
-    selectors                  ::=  selector ( "," verticalSpace? selector )* ;
+    selectors                  ::=  selector ( "," selector )* ;
 
 
     selector                   ::=  ( class | pseudoClass | pseudoElement | attribute )+ ;
@@ -40,7 +40,7 @@ const cssBNF = `
 
 
 
-    declaration                ::=  property ":" verticalSpace? expression ( "," verticalSpace? expression )* priority? ";" ;
+    declaration                ::=  property ":" expression ( "," expression )* priority? ";" ;
 
 
     class                      ::=  "."<NO_WHITESPACE>[identifier] parenthesisedSelector? ;
@@ -57,21 +57,13 @@ const cssBNF = `
 
     attribute                  ::=  "["
 
-                                       verticalSpace?
-
                                        [identifier]
 
-                                       verticalSpace?
-   
                                        (
 
                                          ( "=" | "~=" | "|=" )
 
-                                         verticalSpace?
-
                                          ( [identifier] | [string-literal] )
-
-                                         verticalSpace?
 
                                        )?
 
@@ -80,10 +72,10 @@ const cssBNF = `
                                  ;
 
 
-    property                   ::=  [identifier] verticalSpace? ;
+    property                   ::=  [identifier] ;
 
 
-    expression                 ::=  term ( ( "," verticalSpace? )? term )* ;
+    expression                 ::=  term ( ","? term )* ;
 
 
     priority                   ::=  "!important" ;
@@ -108,7 +100,7 @@ const cssBNF = `
                                                        
                                         |
                                                        
-                                        ( [string-literal] verticalSpace? )+
+                                        [string-literal]+
                                                        
                                         |
                                                        
@@ -127,12 +119,6 @@ const cssBNF = `
 
 
     function                   ::=  [identifier]<NO_WHITESPACE>"(" expression ")" ;
-
-
-
-
-
-    verticalSpace              ::=  <END_OF_LINE>+ ;
 
 
 
