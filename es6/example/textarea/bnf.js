@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import { InputElement } from 'easy';
+import { InputElement } from "easy";
 
 export default class BNFTextarea extends InputElement {
   getBNF() {
@@ -26,11 +26,11 @@ export default class BNFTextarea extends InputElement {
     });
   }
 
-  static tagName = 'textarea';
+  static tagName = "textarea";
 
   static defaultProperties = {
-    className: 'bnf',
-    spellCheck: 'false'
+    className: "bnf",
+    spellCheck: "false"
   };
 
   static fromProperties(properties) { return InputElement.fromProperties(BNFTextarea, properties); }

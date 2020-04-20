@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-import { CommonLexer, EndOfLineNonSignificantToken } from 'occam-lexers';
+import { CommonLexer, EndOfLineNonSignificantToken } from "occam-lexers";
 
-import entries from './entries';
+import entries from "./entries";
 
 export default class CSSLexer extends CommonLexer {
   tokeniseEndOfLines(content) { return super.tokeniseEndOfLines(content, EndOfLineNonSignificantToken); }

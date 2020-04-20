@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-import { Query } from 'occam-dom';
-import { arrayUtilities } from 'necessary';
+import { Query } from "occam-dom";
+import { arrayUtilities } from "necessary";
 
-import RuleSet from './ruleSet';
+import RuleSet from "./ruleSet";
 
 const { unshift } = arrayUtilities;
 
-const ruleSetQuery = Query.fromExpression('/*/ruleSet');
+const ruleSetQuery = Query.fromExpression("/*/ruleSet");
 
 export default class RuleSets {
   constructor(array) {
@@ -31,7 +31,7 @@ export default class RuleSets {
       css += ruleSetCSS;
 
       return css;
-    }, '');
+    }, "");
 
     return css;
   }

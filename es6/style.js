@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-import Medias from './style/medias';
-import RuleSets from './style/ruleSets';
-import Declarations from './style/declarations';
+import Medias from "./style/medias";
+import RuleSets from "./style/ruleSets";
+import Declarations from "./style/declarations";
 
 export default class Style {
   constructor(declarations, ruleSets, medias) {
@@ -38,8 +38,8 @@ export default class Style {
   }
 
   asCSS(className) {
-    const declarationsCSS = this.declarations.asCSS('  '),
-          ruleSetsCSS = this.ruleSets.asCSS(className, ''),
+    const declarationsCSS = this.declarations.asCSS("  "),
+          ruleSetsCSS = this.ruleSets.asCSS(className, ""),
           mediasCSS = this.medias.asCSS(className),
           html = `.${className} {
 ${declarationsCSS}

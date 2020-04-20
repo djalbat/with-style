@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import { InputElement } from 'easy';
+import { InputElement } from "easy";
 
 export default class ContentTextarea extends InputElement {
   getContent() {
@@ -17,11 +17,11 @@ export default class ContentTextarea extends InputElement {
   }
 
   showError() {
-    this.addClass('error');
+    this.addClass("error");
   }
 
   hideError() {
-    this.removeClass('error');
+    this.removeClass("error");
   }
 
   parentContext() {
@@ -38,11 +38,11 @@ export default class ContentTextarea extends InputElement {
     });
   }
 
-  static tagName = 'textarea';
+  static tagName = "textarea";
 
   static defaultProperties = {
-    className: 'content',
-    spellCheck: 'false'
+    className: "content",
+    spellCheck: "false"
   };
 
   static fromProperties(properties) { return InputElement.fromProperties(ContentTextarea, properties); }

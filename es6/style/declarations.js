@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-import { Query } from 'occam-dom';
-import { arrayUtilities } from 'necessary';
+import { Query } from "occam-dom";
+import { arrayUtilities } from "necessary";
 
-import { asContent } from '../utilities/node';
+import { asContent } from "../utilities/node";
 
 const { unshift } = arrayUtilities;
 
-const declarationQuery = Query.fromExpression('/*/declaration');
+const declarationQuery = Query.fromExpression("/*/declaration");
 
 export default class Declarations {
   constructor(array) {
@@ -25,7 +25,7 @@ export default class Declarations {
   }
 
   asCSS(indent) {
-    let css = '';
+    let css = "";
 
     const length = this.array.length;
 

@@ -30,11 +30,11 @@
     "browserify": "^16.5.0",
     "concurrently": "^5.1.0",
     "lively-cli": "^1.1.5",
-    "watchful-cli": "^1.1.1"
+    "watchful-cli": "^1.4.1"
   },
   "scripts": {
     "clean": "rm -rf ./lib",
-    "watchful": "watchful --source-directory=./es6 --temp-directory=./lib --entry-file=example.js --bundle-file=./example.js",
+    "watchful": "watchful --source-directory=./es6 --temp-directory=./lib --entry-file=example.js --bundle-file=./example.js --pause=100",
     "batch": "npm run watchful batch --",
     "batch-debug": "npm run watchful batch -- --debug",
     "incremental": "npm run watchful incremental --",

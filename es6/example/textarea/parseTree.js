@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import { InputElement } from 'easy';
+import { InputElement } from "easy";
 
 export default class ParseTreeTextarea extends InputElement {
   setParseTree(parseTree) {
@@ -17,7 +17,7 @@ export default class ParseTreeTextarea extends InputElement {
   }
 
   clearParseTree() {
-    const value = '';
+    const value = "";
 
     this.setValue(value);
   }
@@ -32,11 +32,11 @@ export default class ParseTreeTextarea extends InputElement {
     });
   }
 
-  static tagName = 'textarea';
+  static tagName = "textarea";
 
   static defaultProperties = {
-    className: 'parse-tree',
-    spellCheck: 'false',
+    className: "parse-tree",
+    spellCheck: "false",
     readOnly: true
   };
 

@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-import 'juxtapose';
+import "juxtapose";
 
-import { Body } from 'easy';
+import { Body } from "easy";
 
-import View from './example/view';
+import View from "./example/view";
 
 const body = new Body();
 

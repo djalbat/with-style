@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-import { BNFLexer } from 'occam-lexers';
-import { BNFParser, CommonParser } from 'occam-parsers';
+import { BNFLexer } from "occam-lexers";
+import { BNFParser, CommonParser } from "occam-parsers";
 
-import bnf from './bnf';
+import bnf from "./bnf";
 
 const bnfLexer = BNFLexer.fromNothing(),
       bnfParser = BNFParser.fromNothing();

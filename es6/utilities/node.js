@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 export function asContent(node, tokens) {
   const firstSignificantToken = node.getFirstSignificantToken(),
@@ -8,7 +8,7 @@ export function asContent(node, tokens) {
         firstTokenIndex = tokens.indexOf(firstToken),
         lastTokenIndex = tokens.indexOf(lastToken);
 
-  let content = '';
+  let content = "";
 
   for (let index = firstTokenIndex; index <= lastTokenIndex; index++) {
     const token = tokens[index],

@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-import Style from '../style';
-import CSSLexer from '../css/lexer';
-import CSSParser from '../css/parser';
+import Style from "../style";
+import CSSLexer from "../css/lexer";
+import CSSParser from "../css/parser";
 
 const cssLexer = CSSLexer.fromNothing(),
       cssParser = CSSParser.fromNothing();
@@ -14,8 +14,8 @@ export function renderStyles() {
         innerHTML = `
         
 ${stylesCSS}`,
-      headDOMElement = document.querySelector('head'),
-      styleDOMElement = document.createElement('style');
+      headDOMElement = document.querySelector("head"),
+      styleDOMElement = document.createElement("style");
 
   Object.assign(styleDOMElement, {
     innerHTML
@@ -34,7 +34,7 @@ export function generateStyle(args, className, superStyle = null) {
                         `${content}${string}`;
 
           return content;
-        }, ''),
+        }, ""),
         tokens = cssLexer.tokenise(content),
         node = cssParser.parse(tokens),
         style = Style.fromNodeAndTokens(node, tokens);
@@ -67,7 +67,7 @@ function retrieveStylesCSS() {
           stylesCSS += styleCSS;
 
           return stylesCSS;
-        }, '');
+        }, "");
 
   return stylesCSS;
 }

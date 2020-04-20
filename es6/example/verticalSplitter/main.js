@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-import { Splitter, VerticalSplitter } from 'easy-layout';
+import { Splitter, VerticalSplitter } from "easy-layout";
 
 export default class MainVerticalSplitter extends VerticalSplitter {
   static defaultProperties = {
-    className: 'main'
+    className: "main"
   };
 
   static fromProperties(properties) {

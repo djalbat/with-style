@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-import { Query } from 'occam-dom';
-import { arrayUtilities } from 'necessary';
+import { Query } from "occam-dom";
+import { arrayUtilities } from "necessary";
 
-import Declarations from './declarations';
+import Declarations from "./declarations";
 
-import { asContent } from '../utilities/node';
+import { asContent } from "../utilities/node";
 
 const { first } = arrayUtilities;
 
-const selectorsQuery = Query.fromExpression('//selectors');
+const selectorsQuery = Query.fromExpression("//selectors");
 
 export default class RuleSet {
   constructor(selectors, declarations) {

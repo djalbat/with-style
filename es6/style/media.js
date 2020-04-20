@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
-import { Query } from 'occam-dom';
-import { arrayUtilities } from 'necessary';
+import { Query } from "occam-dom";
+import { arrayUtilities } from "necessary";
 
-import RuleSets from './ruleSets';
-import Declarations from './declarations';
+import RuleSets from "./ruleSets";
+import Declarations from "./declarations";
 
-import { asContent } from '../utilities/node';
+import { asContent } from "../utilities/node";
 
 const { first } = arrayUtilities;
 
-const mediaQueriesQuery = Query.fromExpression('/media/mediaQueries');
+const mediaQueriesQuery = Query.fromExpression("/media/mediaQueries");
 
 export default class Media {
   constructor(mediaQueries, declarations, ruleSets) {
@@ -20,8 +20,8 @@ export default class Media {
   }
 
   asCSS(className) {
-    const declarationsCSS = this.declarations.asCSS('    '),
-          ruleSetsCSS = this.ruleSets.asCSS(className, '  '),
+    const declarationsCSS = this.declarations.asCSS("    "),
+          ruleSetsCSS = this.ruleSets.asCSS(className, "  "),
           css = `@media ${this.mediaQueries} {
   .${className} {
 ${declarationsCSS}

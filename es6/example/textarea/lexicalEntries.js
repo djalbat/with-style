@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import { InputElement } from 'easy';
+import { InputElement } from "easy";
 
 export default class LexicalEntriesTextarea extends InputElement {
   constructor(selector, changeHandler, keyUpHandler) {
@@ -12,7 +12,7 @@ export default class LexicalEntriesTextarea extends InputElement {
   }
 
   onKeyUp(keyUpHandler) {
-    this.on('keyUp', keyUpHandler);
+    this.on("keyup", keyUpHandler);
   }
 
   getLexicalEntries() {
@@ -23,7 +23,7 @@ export default class LexicalEntriesTextarea extends InputElement {
   }
 
   setLexicalEntries(lexicalEntries) {
-    const value = JSON.stringify(lexicalEntries, null, '  ');
+    const value = JSON.stringify(lexicalEntries, null, "  ");
 
     this.setValue(value);
   }
@@ -38,11 +38,11 @@ export default class LexicalEntriesTextarea extends InputElement {
     });
   }
 
-  static tagName = 'textarea';
+  static tagName = "textarea";
 
   static defaultProperties = {
-    className: 'lexical-entries',
-    spellCheck: 'false'
+    className: "lexical-entries",
+    spellCheck: "false"
   };
 
   static fromProperties(properties) { return InputElement.fromProperties(LexicalEntriesTextarea, properties); }

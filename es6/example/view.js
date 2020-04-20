@@ -1,17 +1,17 @@
-'use strict';
+"use strict";
 
-import { Element } from 'easy';
-import { SizeableElement } from 'easy-layout';
+import { Element } from "easy";
+import { SizeableElement } from "easy-layout";
 
-import cssBNF from '../css/bnf';
-import CSSLexer from '../css/lexer';
-import CSSParser from '../css/parser';
-import cssEntries from '../css/entries';
-import BNFTextarea from './textarea/bnf';
-import ContentTextarea from './textarea/content';
-import ParseTreeTextarea from './textarea/parseTree';
-import MainVerticalSplitter from './verticalSplitter/main';
-import LexicalEntriesTextarea from './textarea/lexicalEntries';
+import cssBNF from "../css/bnf";
+import CSSLexer from "../css/lexer";
+import CSSParser from "../css/parser";
+import cssEntries from "../css/entries";
+import BNFTextarea from "./textarea/bnf";
+import ContentTextarea from "./textarea/content";
+import ParseTreeTextarea from "./textarea/parseTree";
+import MainVerticalSplitter from "./verticalSplitter/main";
+import LexicalEntriesTextarea from "./textarea/lexicalEntries";
 
 export default class View extends Element {
   getParseTree() {
@@ -85,7 +85,7 @@ export default class View extends Element {
   initialise() {
     this.assignContext();
 
-    const initialContent = '',
+    const initialContent = "",
           entries = cssEntries, ///
           bnf = cssBNF, ///
           content = initialContent, ///
@@ -98,10 +98,10 @@ export default class View extends Element {
     this.keyUpHandler();
   }
 
-  static tagName = 'div';
+  static tagName = "div";
 
   static defaultProperties = {
-    className: 'view'
+    className: "view"
   };
 
   static fromProperties(properties) {
