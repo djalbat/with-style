@@ -40,7 +40,7 @@ Not an example as such. It allows you to test out CSS against the built-in CSS l
 
 Not all of it. You cannot, for example, make references to child elements at all. In the style for the `Header` component, for example, you would not be able to style the child `Link` component as follows:
 
-```css
+```
 ...
 
 a {
@@ -83,7 +83,7 @@ export default withStyle(MarkdownViewer)`
 ```
 Now you could create an external style sheet for styling the rendered HTML:
 
-```css
+```
 .markdown {
 
    ...
@@ -92,7 +92,7 @@ Now you could create an external style sheet for styling the rendered HTML:
 ```
 Other than this restriction, most of standard CSS is supported. All of the following CSS is fine, for example:
 
-```css
+```
   color: ${black};
   border: ${border};
   display: block;
