@@ -2,7 +2,7 @@
 
 Programmatic styles support.
 
-This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style). There is no need to install it directly as a dependency of your project. However, you might wish to clone it in order to try out the example.
+This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style). There is no need to install it directly as a dependency of your project. However, you might like to clone it in order to try out the example.
 
 ## Installation
 
@@ -22,7 +22,7 @@ You will need to do this if you want to look at the example.
 
 ## Usage
 
-```js
+```
 import { tagNames, classUtilities, stylesUtilities, classNameUtilities } from 'with-style';
 
 const { isClass } = classUtilities,
@@ -53,7 +53,7 @@ Not being able to do so is restrictive, admittedly, but deliberately so. After a
 
 If you really must style the child elements of components in some way, and there are occasions this is unavoidable, add a fixed class name to the component and define this class in an external style sheet. For example, say you wanted to create a component for viewing markdown. The markdown is to be rendered as HTML and you would like to style the resultant images, titles and so on. You could implement your component thus:
 
-```js
+```
 class MarkdownViewer extends React.Component {
 
   ...
@@ -128,6 +128,10 @@ Automation is thanks to [npm scripts](https://docs.npmjs.com/misc/scripts), have
 
     npm run build-debug
     npm run watch-debug
+    
+## References    
+
+* [W3C Grammar of CSS 2.1](https://www.w3.org/TR/CSS21/grammar.html)
 
 ## Contact
 
