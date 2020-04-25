@@ -1,6 +1,6 @@
 # With Style
 
-Programmatic styles support.
+Programmatic styles.
 
 This package supplies tag names and utility functions for [Reaction with Style](https://github.com/djalbat/reaction-with-style). There is no need to install it directly as a dependency of your project. However, you might like to clone it in order to try out the example.
 
