@@ -25,7 +25,3 @@ export default class CSSParser extends CommonParser {
     return cssParser;
   }
 }
-
-Object.assign(CSSParser, {
-  bnf
-});
