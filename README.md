@@ -5,7 +5,6 @@ Programmatic styles.
 This package supplies the tag names and utility functions for the following two packages:
 
 * [Easy with Style](https://github.com/djalbat/easy-with-style).
-
 * [Reaction with Style](https://github.com/djalbat/reaction-with-style).
 
 ## Installation
