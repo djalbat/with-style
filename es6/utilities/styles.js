@@ -9,13 +9,12 @@ const cssLexer = CSSLexer.fromNothing(),
 
 const styleMap = {};
 
-export function renderStyles() {
-  const stylesCSS = retrieveStylesCSS(),
+function addStyle(style) {
+  const headDOMElement = document.querySelector("head"),
+        styleDOMElement = document.createElement("style"),
         innerHTML = `
         
-${stylesCSS}`,
-      headDOMElement = document.querySelector("head"),
-      styleDOMElement = document.createElement("style");
+${style}`;
 
   Object.assign(styleDOMElement, {
     innerHTML
@@ -24,7 +23,14 @@ ${stylesCSS}`,
   headDOMElement.appendChild(styleDOMElement);
 }
 
-export function generateStyle(args, className, superStyle = null) {
+function renderStyles() {
+  const stylesCSS = retrieveStylesCSS(),
+        style = stylesCSS;  ///
+
+  addStyle(style);
+}
+
+function generateStyle(args, className, superStyle = null) {
   const strings = args.shift(),	///
         content = strings.reduce((content, string, index) => {
           const arg = args[index];
@@ -46,13 +52,14 @@ export function generateStyle(args, className, superStyle = null) {
         styleMap[className] = style;
 }
 
-export function retrieveStyle(className) {
+function retrieveStyle(className) {
   const style = styleMap[className] || null;
 
   return style;
 }
 
 export default {
+  addStyle,
   renderStyles,
   generateStyle,
   retrieveStyle
