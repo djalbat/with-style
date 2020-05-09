@@ -12,9 +12,9 @@
   "dependencies": {
     "hashids": "~1.0.2",
     "necessary": "^3.2.2",
-    "occam-dom": "^2.0.3",
-    "occam-lexers": "^11.0.23",
-    "occam-parsers": "^11.0.13",
+    "occam-dom": "^2.0.4",
+    "occam-lexers": "^11.0.25",
+    "occam-parsers": "^11.0.15",
     "random-seed": "^0.3.0",
     "uuid": "^3.3.2"
   },
