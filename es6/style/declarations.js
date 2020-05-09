@@ -3,7 +3,7 @@
 import { Query } from "occam-dom";
 import { arrayUtilities } from "necessary";
 
-import { asContent } from "../utilities/node";
+import Declaration from "./declaration";
 
 const { unshift } = arrayUtilities;
 
@@ -29,16 +29,18 @@ export default class Declarations {
 
     const length = this.array.length;
 
-    if (length > 0) {
+    if (length> 0) {
       const lastIndex = length - 1;
 
-      this.array.forEach((declaration, index) => {
-        const declarationCSS = (index === lastIndex) ?
-                                `${indent}${declaration}` :
-                                  `${indent}${declaration}\n`;
+      css = this.array.reduce((css, declaration, index) => {
+        const last = (index === lastIndex);
+
+        const declarationCSS = declaration.asCSS(indent, last);
 
         css += declarationCSS;
-      });
+
+        return css;
+      }, "");
     }
 
     return css;
@@ -47,8 +49,8 @@ export default class Declarations {
   static fromNodeAndTokens(node, tokens) {
     const declarationNodes = declarationQuery.execute(node),
           array = declarationNodes.map((declarationNode) => {
-            const declarationNodeContent = asContent(declarationNode, tokens),
-                  declaration = declarationNodeContent; ///
+            const node = declarationNode, ///
+                  declaration = Declaration.fromNodeAndTokens(node, tokens);
 
             return declaration;
           }),
