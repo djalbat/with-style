@@ -38,16 +38,12 @@ export default class Style {
   }
 
   asCSS(className) {
-    const declarationsCSS = this.declarations.asCSS("  "),
+    const declarationsCSS = this.declarations.asCSS(className, "  "),
           ruleSetsCSS = this.ruleSets.asCSS(className, ""),
           mediasCSS = this.medias.asCSS(className),
-          html = `.${className} {
-${declarationsCSS}
-}
+          css = `${declarationsCSS}${ruleSetsCSS}${mediasCSS}`;
 
-${ruleSetsCSS}${mediasCSS}`;
-
-    return html;
+    return css;
   }
 
   static fromNodeAndTokens(node, tokens) {

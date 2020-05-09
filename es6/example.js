@@ -6,8 +6,10 @@ const { generateStyle, retrieveStyle, renderStyles } = styleUtilities;
 
 generateStyle([[`
 
-  color: black;
-  display: none;
+  :after {
+    color: green;
+    display: none;
+  }
   
 `]], "abc");
 
@@ -15,8 +17,10 @@ const superStyle = retrieveStyle("abc");
 
 generateStyle([[`
 
-  display: block;
-  background: transparent;
+  :after {
+    display: block;
+    background: transparent;
+  }
   
 `]], "def", superStyle);
 

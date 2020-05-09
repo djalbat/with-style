@@ -39,23 +39,37 @@ export default class Declarations {
     });
   }
 
-  asCSS(indent) {
+  asCSS(className, indent) {
+    if (indent === undefined) {
+      indent = className; ///
+
+      className = null; ///
+    }
+
     let css = "";
 
     const length = this.array.length;
 
-    if (length> 0) {
-      const lastIndex = length - 1;
+    if (length > 0) {
+      const lastIndex = length - 1,
+            declarationsCSS = this.array.reduce((declarationsCSS, declaration, index) => {
+              const last = (index === lastIndex),
+                    declarationCSS = declaration.asCSS(indent, last);
 
-      css = this.array.reduce((css, declaration, index) => {
-        const last = (index === lastIndex);
+              declarationsCSS += declarationCSS;
 
-        const declarationCSS = declaration.asCSS(indent, last);
+              return declarationsCSS;
+            }, "");
 
-        css += declarationCSS;
+      if (className === null) {
+        css = declarationsCSS;  ///
+      } else {
+        css = `.${className} {
+${declarationsCSS}
+}
 
-        return css;
-      }, "");
+`;
+      }
     }
 
     return css;

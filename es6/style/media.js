@@ -20,17 +20,18 @@ export default class Media {
   }
 
   asCSS(className) {
-    const declarationsCSS = this.declarations.asCSS("    "),
-          ruleSetsCSS = this.ruleSets.asCSS(className, "  "),
-          css = `@media ${this.mediaQueries} {
-  .${className} {
-${declarationsCSS}
-  }
-  
-${ruleSetsCSS}
+    let css = "";
+
+    const ruleSetsCSS = this.ruleSets.asCSS(className, "  "),
+          declarationsCSS = this.declarations.asCSS(className, "    ");
+
+    if ((ruleSetsCSS !== null) || (declarationsCSS !== null)) {
+      css = `@media ${this.mediaQueries} {
+${declarationsCSS}${ruleSetsCSS}
 }
 
 `;
+    }
 
     return css;
   }

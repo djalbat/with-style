@@ -18,12 +18,17 @@ export default class RuleSet {
   }
 
   asCSS(className, indent) {
-    const declarationsCSS = this.declarations.asCSS(`  ${indent}`),
-          css = `${indent}.${className}${this.selectors} {
+    let css = "";
+
+    const declarationsCSS = this.declarations.asCSS(`  ${indent}`);
+
+    if (declarationsCSS !== "") {
+       css = `${indent}.${className}${this.selectors} {
 ${declarationsCSS}
 ${indent}}
 
 `;
+    }
 
     return css;
   }
