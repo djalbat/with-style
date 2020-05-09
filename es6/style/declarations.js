@@ -11,28 +11,15 @@ export default class Declarations {
     this.array = array;
   }
 
-  getProperties() {
-    const properties = this.array.map((declaration) => {
-      const property = declaration.getProperty();
-
-      return property;
-    });
-
-    return properties;
-  }
-
   forEach(callback) {
     this.array.forEach(callback);
   }
 
   unshift(declarations) {
-    const properties = this.getProperties();
-
     declarations.forEach((declaration) => {
-      const property = declaration.getProperty(),
-            propertiesIncludesProperty = properties.includes(property);
+      const matches = declaration.checkMatches(this.array); ///
 
-      if (!propertiesIncludesProperty) {
+      if (!matches) {
         this.array.unshift(declaration);
       }
     });

@@ -13,7 +13,11 @@ export default class RuleSets {
 
   unshift(ruleSets) {
     ruleSets.forEach((ruleSet) => {
-      this.array.unshift(ruleSet);
+      const matches = ruleSet.checkMatches(this.array); ///
+
+      if (!matches) {
+        this.array.unshift(ruleSet);
+      }
     });
   }
 

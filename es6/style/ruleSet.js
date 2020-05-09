@@ -1,13 +1,10 @@
 "use strict";
 
 import { Query } from "occam-dom";
-import { arrayUtilities } from "necessary";
 
 import Declarations from "./declarations";
 
-import { asContent } from "../utilities/node";
-
-const { first } = arrayUtilities;
+import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
 const selectorsQuery = Query.fromExpression("//selectors");
 
@@ -23,6 +20,19 @@ export default class RuleSet {
 
   getDeclarations() {
     return this.declarations;
+  }
+
+  checkMatches(ruleSets) {
+    const matches = ruleSets.some((ruleSet) => {
+      const selectors = ruleSet.getSelectors(),
+            selectorsMatch = checkSelectorsMatch(selectors, this.selectors);
+
+      if (selectorsMatch) {
+        return true;
+      }
+    });
+
+    return matches;
   }
 
   asCSS(className, indent) {
@@ -51,11 +61,40 @@ ${indent}}
 }
 
 function selectorsFromNodeAndTokens(node, tokens) {
-  const selectorsNodes = selectorsQuery.execute(node),
-        firstSelectorsNode = first(selectorsNodes),
-        selectorsNode = firstSelectorsNode, ///
-        selectorsNodeContent = asContent(selectorsNode, tokens),
+  const selectorsNodeContent = contentFromQueryNodeAndTokens(selectorsQuery, node, tokens),
         selectors = `${selectorsNodeContent}`;
 
   return selectors;
+}
+
+function checkSelectorsMatch(selectorsA, selectorsB) {
+  const selectorsMatch = (selectorsA === selectorsB);
+
+  // let selectorsMatch = true;
+  //
+  // if (selectorsMatch === true) {
+  //   selectorsA.some((selectorA) => {
+  //     const selectorsBIncludesSelectorA = selectorsB.includes(selectorA);
+  //
+  //     if (!selectorsBIncludesSelectorA) {
+  //       selectorsMatch = false;
+  //
+  //       return true;
+  //     }
+  //   });
+  // }
+  //
+  // if (selectorsMatch === true) {
+  //   selectorsB.some((selectorB) => {
+  //     const selectorsAIncludesSelectorB = selectorsA.includes(selectorB);
+  //
+  //     if (!selectorsAIncludesSelectorB) {
+  //       selectorsMatch = false;
+  //
+  //       return true;
+  //     }
+  //   });
+  // }
+
+  return selectorsMatch;
 }

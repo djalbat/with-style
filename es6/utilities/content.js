@@ -1,6 +1,21 @@
 "use strict";
 
-export function asContent(node, tokens) {
+import { arrayUtilities } from "necessary";
+
+const { first } = arrayUtilities;
+
+export function contentFromQueryNodeAndTokens(query, node, tokens) {
+  const nodes = query.execute(node),
+        firstNode = first(nodes);
+
+  node = firstNode; ///
+
+  const content = contentFromNodeAndTokens(node, tokens);
+
+  return content;
+}
+
+function contentFromNodeAndTokens(node, tokens) {
   const firstSignificantToken = node.getFirstSignificantToken(),
         lastSignificantToken = node.getLastSignificantToken(),
         firstToken = firstSignificantToken, ///

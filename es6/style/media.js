@@ -1,14 +1,11 @@
 "use strict";
 
 import { Query } from "occam-dom";
-import { arrayUtilities } from "necessary";
 
 import RuleSets from "./ruleSets";
 import Declarations from "./declarations";
 
-import { asContent } from "../utilities/node";
-
-const { first } = arrayUtilities;
+import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
 const mediaQueriesQuery = Query.fromExpression("/media/mediaQueries");
 
@@ -59,10 +56,7 @@ ${declarationsCSS}${ruleSetsCSS}
 }
 
 function mediaQueriesFromNodeAndTokens(node, tokens) {
-  const mediaQueriesNodes = mediaQueriesQuery.execute(node),
-        firstSelectorsNode = first(mediaQueriesNodes),
-        mediaQueriesNode = firstSelectorsNode, ///
-        mediaQueriesNodeContent = asContent(mediaQueriesNode, tokens),
+  const mediaQueriesNodeContent = contentFromQueryNodeAndTokens(mediaQueriesQuery, node, tokens),
         mediaQueries = `${mediaQueriesNodeContent}`;
 
   return mediaQueries;

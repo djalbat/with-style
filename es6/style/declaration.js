@@ -1,11 +1,8 @@
 "use strict";
 
 import { Query } from "occam-dom";
-import { arrayUtilities } from "necessary";
 
-import { asContent } from "../utilities/node";
-
-const { first } = arrayUtilities;
+import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
 const propertyQuery = Query.fromExpression("/*/property"),
       expressionQuery = Query.fromExpression("/*/expression");
@@ -22,6 +19,19 @@ export default class Declaration {
 
   getExpression() {
     return this.expression;
+  }
+
+  checkMatches(declarations) {
+    const matches = declarations.some((declaration) => {
+      const property = declaration.getProperty(),
+            propertiesMatch = checkPropertiesMatch(property, this.property);
+
+      if (propertiesMatch) {
+        return true;
+      }
+    });
+
+    return matches;
   }
 
   asCSS(indent, last) {
@@ -43,10 +53,8 @@ export default class Declaration {
   }
 }
 
-function contentFromQueryNodeAndTokens(query, node, tokens) {
-  const nodes = query.execute(node),
-        firstNode = first(nodes),
-        content = asContent(firstNode, tokens);
+function checkPropertiesMatch(propertyA, propertyB) {
+  const propertiesMatch = (propertyA === propertyB);
 
-  return content;
+  return propertiesMatch;
 }
