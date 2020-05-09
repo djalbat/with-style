@@ -13,11 +13,11 @@ export default class RuleSets {
 
   unshift(ruleSets) {
     ruleSets.forEach((ruleSet) => {
-      const matches = ruleSet.checkMatches(this.array); ///
+      const matchingRuleSet = ruleSet.findMatchingRuleSet(this.array); ///
 
-      if (!matches) {
-        this.array.unshift(ruleSet);
-      }
+      (matchingRuleSet === null) ?
+        this.array.unshift(ruleSet) :
+          matchingRuleSet.unshift(ruleSet);
     });
   }
 

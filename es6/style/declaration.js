@@ -24,7 +24,7 @@ export default class Declaration {
   checkMatches(declarations) {
     const matches = declarations.some((declaration) => {
       const property = declaration.getProperty(),
-            propertiesMatch = checkPropertiesMatch(property, this.property);
+            propertiesMatch = (property === this.property);
 
       if (propertiesMatch) {
         return true;
@@ -51,10 +51,4 @@ export default class Declaration {
 
     return declaration;
   }
-}
-
-function checkPropertiesMatch(propertyA, propertyB) {
-  const propertiesMatch = (propertyA === propertyB);
-
-  return propertiesMatch;
 }

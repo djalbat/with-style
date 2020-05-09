@@ -22,17 +22,24 @@ export default class RuleSet {
     return this.declarations;
   }
 
-  checkMatches(ruleSets) {
-    const matches = ruleSets.some((ruleSet) => {
-      const selectors = ruleSet.getSelectors(),
-            selectorsMatch = checkSelectorsMatch(selectors, this.selectors);
+  unshift(ruleSet) {
+    const declarations = ruleSet.getDeclarations();
 
-      if (selectorsMatch) {
+    this.declarations.unshift(declarations);
+  }
+
+  findMatchingRuleSet(ruleSets) {
+    const matchingRuleSet = ruleSets.find((ruleSet) => {
+      const selectors = ruleSet.getSelectors(),
+            selectorsMatch = (selectors === this.selectors),
+            ruleSetsMatch = selectorsMatch; ///
+
+      if (ruleSetsMatch) {
         return true;
       }
-    });
+    }) || null; ///
 
-    return matches;
+    return matchingRuleSet;
   }
 
   asCSS(className, indent) {
@@ -65,36 +72,4 @@ function selectorsFromNodeAndTokens(node, tokens) {
         selectors = `${selectorsNodeContent}`;
 
   return selectors;
-}
-
-function checkSelectorsMatch(selectorsA, selectorsB) {
-  const selectorsMatch = (selectorsA === selectorsB);
-
-  // let selectorsMatch = true;
-  //
-  // if (selectorsMatch === true) {
-  //   selectorsA.some((selectorA) => {
-  //     const selectorsBIncludesSelectorA = selectorsB.includes(selectorA);
-  //
-  //     if (!selectorsBIncludesSelectorA) {
-  //       selectorsMatch = false;
-  //
-  //       return true;
-  //     }
-  //   });
-  // }
-  //
-  // if (selectorsMatch === true) {
-  //   selectorsB.some((selectorB) => {
-  //     const selectorsAIncludesSelectorB = selectorsA.includes(selectorB);
-  //
-  //     if (!selectorsAIncludesSelectorB) {
-  //       selectorsMatch = false;
-  //
-  //       return true;
-  //     }
-  //   });
-  // }
-
-  return selectorsMatch;
 }
