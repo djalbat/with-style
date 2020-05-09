@@ -1,11 +1,8 @@
 "use strict";
 
 import { Query } from "occam-dom";
-import { arrayUtilities } from "necessary";
 
 import RuleSet from "./ruleSet";
-
-const { unshift } = arrayUtilities;
 
 const ruleSetQuery = Query.fromExpression("/*/ruleSet");
 
@@ -14,14 +11,14 @@ export default class RuleSets {
     this.array = array;
   }
 
-  getArray() {
-    return this.array;
+  unshift(ruleSets) {
+    ruleSets.forEach((ruleSet) => {
+      this.array.unshift(ruleSet);
+    });
   }
 
-  unshift(ruleSets) {
-    const array = ruleSets.getArray();
-
-    unshift(this.array, array);
+  forEach(callback) {
+    this.array.forEach(callback);
   }
 
   asCSS(className, indent) {

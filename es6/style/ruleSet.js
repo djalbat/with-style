@@ -17,6 +17,14 @@ export default class RuleSet {
     this.declarations = declarations;
   }
 
+  getSelectors() {
+    return this.selectors;
+  }
+
+  getDeclarations() {
+    return this.declarations;
+  }
+
   asCSS(className, indent) {
     let css = "";
 

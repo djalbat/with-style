@@ -21,15 +21,14 @@ export default class Declarations {
     return properties;
   }
 
-  getArray() {
-    return this.array;
+  forEach(callback) {
+    this.array.forEach(callback);
   }
 
   unshift(declarations) {
-    const properties = this.getProperties(),
-          array = declarations.getArray();
+    const properties = this.getProperties();
 
-    array.forEach((declaration) => {
+    declarations.forEach((declaration) => {
       const property = declaration.getProperty(),
             propertiesIncludesProperty = properties.includes(property);
 

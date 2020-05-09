@@ -1,11 +1,8 @@
 "use strict";
 
 import { Query } from "occam-dom";
-import { arrayUtilities } from "necessary";
 
 import Media from "./media";
-
-const { unshift } = arrayUtilities;
 
 const mediaQuery = Query.fromExpression("/stylesheet/media");
 
@@ -14,14 +11,14 @@ export default class Medias {
     this.array = array;
   }
 
-  getArray() {
-    return this.array;
+  unshift(medias) {
+    medias.forEach((media) => {
+      this.array.unshift(media);
+    });
   }
 
-  unshift(medias) {
-    const array = medias.getArray();
-
-    unshift(this.array, array);
+  forEach(callback) {
+    this.array.forEach(callback);
   }
 
   asCSS(className) {

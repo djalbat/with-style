@@ -19,6 +19,18 @@ export default class Media {
     this.ruleSets = ruleSets;
   }
 
+  getMediaQueries() {
+    return this.mediaQueries;
+  }
+
+  getDeclarations() {
+    return this.declarations;
+  }
+
+  getRuleSets() {
+    return this.ruleSets;
+  }
+
   asCSS(className) {
     let css = "";
 
