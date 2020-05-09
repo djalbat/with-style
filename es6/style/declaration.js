@@ -16,7 +16,7 @@ export default class Declaration {
     this.expression = expression;
   }
 
-  getContent() {
+  getProperty() {
     return this.property;
   }
 

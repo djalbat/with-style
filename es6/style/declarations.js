@@ -1,11 +1,8 @@
 "use strict";
 
 import { Query } from "occam-dom";
-import { arrayUtilities } from "necessary";
 
 import Declaration from "./declaration";
-
-const { unshift } = arrayUtilities;
 
 const declarationQuery = Query.fromExpression("/*/declaration");
 
@@ -14,14 +11,32 @@ export default class Declarations {
     this.array = array;
   }
 
+  getProperties() {
+    const properties = this.array.map((declaration) => {
+      const property = declaration.getProperty();
+
+      return property;
+    });
+
+    return properties;
+  }
+
   getArray() {
     return this.array;
   }
 
   unshift(declarations) {
-    const array = declarations.getArray();
+    const properties = this.getProperties(),
+          array = declarations.getArray();
 
-    unshift(this.array, array);
+    array.forEach((declaration) => {
+      const property = declaration.getProperty(),
+            propertiesIncludesProperty = properties.includes(property);
+
+      if (!propertiesIncludesProperty) {
+        this.array.unshift(declaration);
+      }
+    });
   }
 
   asCSS(indent) {
