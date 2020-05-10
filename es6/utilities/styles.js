@@ -9,7 +9,7 @@ const cssLexer = CSSLexer.fromNothing(),
 
 const styleMap = {};
 
-function addStyle(style) {
+function renderStyle(style) {
   const headDOMElement = document.querySelector("head"),
         styleDOMElement = document.createElement("style"),
         innerHTML = `
@@ -27,7 +27,7 @@ function renderStyles() {
   const stylesCSS = retrieveStylesCSS(),
         style = stylesCSS;  ///
 
-  addStyle(style);
+  renderStyle(style);
 }
 
 function generateStyle(args, className, superStyle = null) {
@@ -59,7 +59,7 @@ function retrieveStyle(className) {
 }
 
 export default {
-  addStyle,
+  renderStyle,
   renderStyles,
   generateStyle,
   retrieveStyle
