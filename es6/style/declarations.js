@@ -11,12 +11,32 @@ export default class Declarations {
     this.array = array;
   }
 
-  forEach(callback) {
-    this.array.forEach(callback);
+  forwardsForEach(callback) {
+    const length = this.array.length,
+          firstIndex = 0,
+          lastIndex = length - 1;
+
+    for (let index = firstIndex; index <= lastIndex; index++) {
+      const declaration = this.array[index];
+
+      callback(declaration, index);
+    }
+  }
+
+  backwardsForEach(callback) {
+    const length = this.array.length,
+          firstIndex = 0,
+          lastIndex = length - 1;
+
+    for (let index = lastIndex; index >= firstIndex; index--) {
+      const declaration = this.array[index];
+
+      callback(declaration, index);
+    }
   }
 
   unshift(declarations) {
-    declarations.forEach((declaration) => {
+    declarations.backwardsForEach((declaration) => {
       const matches = declaration.checkMatches(this.array); ///
 
       if (!matches) {

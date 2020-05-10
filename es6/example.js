@@ -6,21 +6,29 @@ const { generateStyle, retrieveStyle, renderStyles } = styleUtilities;
 
 generateStyle([[`
 
-  :after {
-    color: green;
-    display: none;
-  }
-  
+  bottom: 0;
+  width: 2rem;
+  height: 2rem;
+  outline: none;
+  display: inline-block;
+  position: absolute;
+  font-size: 1.2rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-bottom-width: 0;
+  background-color: transparent;
+
 `]], "abc");
 
 const superStyle = retrieveStyle("abc");
 
 generateStyle([[`
 
-  :after {
-    display: block;
-    background: transparent;
-  }
+  right: 0;
+  display: none;
+  border-color: red;
+  border-left-width: 0;
   
 `]], "def", superStyle);
 
