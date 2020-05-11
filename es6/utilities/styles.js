@@ -7,7 +7,7 @@ import CSSParser from "../css/parser";
 const cssLexer = CSSLexer.fromNothing(),
       cssParser = CSSParser.fromNothing();
 
-const styleMap = {};
+const { styleMap = {} } = window; ///
 
 function renderStyle(style) {
   const headDOMElement = document.querySelector("head"),
