@@ -9,9 +9,13 @@ const cssLexer = CSSLexer.fromNothing(),
 
 let styleMap;
 
-window ?  ///
-  ({ styleMap = {} } = window) : ///
-    styleMap = {};
+if (window !== undefined) {
+  ({ styleMap } = window);  ///
+}
+
+if (styleMap === undefined) {
+  styleMap = {};
+}
 
 function renderStyle(style) {
   const headDOMElement = document.querySelector("head"),
