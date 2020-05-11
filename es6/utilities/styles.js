@@ -9,7 +9,7 @@ const cssLexer = CSSLexer.fromNothing(),
 
 let styleMap;
 
-if (typeof window !== undefined) {
+if (typeof window !== "undefined") {
   ({ styleMap } = window);  ///
 }
 
