@@ -88,7 +88,7 @@ const cssBNF = `
                                                        
                                       (
                                                        
-                                        ( [percentage] | [frequency] | [length] | [angle] | [rems] | [ems] | [time] | [number] )
+                                        ( [percentage] | [frequency] | [fraction] | [length] | [angle] | [rems] | [ems] | [time] | [number] )
                                                        
                                         |
                                                        
