@@ -1,6 +1,6 @@
 "use strict";
 
-const cssEntries = [
+const entries = [
 
   { "colour": "^#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})" },
 
@@ -10,7 +10,7 @@ const cssEntries = [
 
   { "frequency": "^(?:[0-9]+|[0-9]*\\.[0-9]+)(?:hz|khz)" },
 
-  { "fraction": "^[1-9][0-9]*(\\/[1-9][0-9]*)?fr" },
+  { "fraction": "^[1-9][0-9]*?fr" },
 
   { "length": "^(?:[0-9]+|[0-9]*\\.[0-9]+)(?:px|cm|mm|in|pt|pc)" },
 
@@ -36,4 +36,4 @@ const cssEntries = [
 
 ];
 
-export default cssEntries;
+export default entries;

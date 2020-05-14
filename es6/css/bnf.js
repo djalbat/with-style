@@ -1,6 +1,6 @@
 "use strict";
 
-const cssBNF = `
+const bnf = `
 
 
 
@@ -130,4 +130,4 @@ const cssBNF = `
 
 `;
 
-export default cssBNF;
+export default bnf;
