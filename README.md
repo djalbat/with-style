@@ -35,7 +35,7 @@ const { generateClassName, retrieveClassName } = classNameUtilities,
 
 ...
 ```
-These are utilised or exported in turn by the aforementioned `xxx-with-style` packages.
+These are utilised or exported in turn by the aforementioned `...-with-style` packages.
 
 ## What CSS is supported?
 
