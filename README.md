@@ -25,6 +25,8 @@ You will need to do this if you want to look at the example.
 
 ## Usage
 
+There should be no need to install this package directly. For the record, however, the imports are as follows:
+
 ```
 import { tagNames, stylesUtilities, classNameUtilities } from 'with-style';
 
@@ -33,6 +35,7 @@ const { generateClassName, retrieveClassName } = classNameUtilities,
 
 ...
 ```
+These are utilised or exported in turn by the aforementioned packages `easy-with-style` and `reaction-with-style` packages..
 
 ## What CSS is supported?
 
