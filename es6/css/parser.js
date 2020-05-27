@@ -19,9 +19,5 @@ export default class CSSParser extends CommonParser {
     return cssParser;
   }
 
-  static fromNothing() {
-    const cssParser = CSSParser.fromBNF(bnf);
-
-    return cssParser;
-  }
+  static fromNothing() { CSSParser.fromBNF(bnf); }
 }
