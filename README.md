@@ -123,14 +123,14 @@ position: absolute;
 ```
 Note that all of the selectors, including the class selector, relate to the the component's outermost rendered element.
 
-## Compiling from source
+## Building
 
 Automation is thanks to [npm scripts](https://docs.npmjs.com/misc/scripts), have a look at the `package.json` file. The pertinent commands are:
 
     npm run build-debug
     npm run watch-debug
-    
-## References    
+
+## References
 
 * [W3C Grammar of CSS 2.1](https://www.w3.org/TR/CSS21/grammar.html)
 
