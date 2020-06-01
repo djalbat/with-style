@@ -20,8 +20,8 @@ function contentFromNodeAndTokens(node, tokens) {
         lastSignificantToken = node.getLastSignificantToken(),
         firstToken = firstSignificantToken, ///
         lastToken = lastSignificantToken, ///
-        firstTokenIndex = firstToken.ofIndex(tokens),
-        lastTokenIndex = lastToken.ofIndex(tokens);
+        firstTokenIndex = tokens.indexOf(firstToken),
+        lastTokenIndex = tokens.indexOf(lastToken);
 
   let content = "";
 
