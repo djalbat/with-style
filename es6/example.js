@@ -1,6 +1,6 @@
 "use strict";
 
-import styleUtilities from "./utilities/styles";
+import { styleUtilities } from "./index"; ///
 
 const { generateStyle, retrieveStyle, renderStyles } = styleUtilities;
 
