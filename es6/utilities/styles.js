@@ -9,12 +9,18 @@ const cssLexer = CSSLexer.fromNothing(),
 
 let styleMap;
 
-if (typeof window !== "undefined") {
+if (typeof window === "undefined") {
+  styleMap = {}
+} else {
   ({ styleMap } = window);  ///
-}
 
-if (styleMap === undefined) {
-  styleMap = {};
+  if (styleMap === undefined) {
+    styleMap = {};
+  }
+
+  Object.assign(window, {
+    styleMap
+  });
 }
 
 function renderStyle(style) {
