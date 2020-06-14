@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>With Style example</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+
+    <script src="example.js"> </script>
+
+    <script>
+
+      var xmlHttpRequest = new XMLHttpRequest();
+
+      xmlHttpRequest.onreadystatechange = function() {
+        if (xmlHttpRequest.readyState == 4) {
+          if (xmlHttpRequest.status == 200) {
+            location.reload();
+          }
+        }
+      };
+
+      xmlHttpRequest.open("GET", "http://localhost:3333");
+
+      xmlHttpRequest.send();
+
+    </script>
+
+  </body>
+</html>

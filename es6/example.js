@@ -1,13 +1,13 @@
 "use strict";
 
-import { styleUtilities } from "./index"; ///
+import { stylesUtilities } from "./index"; ///
 
-const { generateStyle, retrieveStyle, renderStyles } = styleUtilities;
+const { generateStyle, retrieveStyle, renderStyles } = stylesUtilities;
 
 generateStyle([[`
 
   bottom: 0;
-  width: 2rem;
+  width: 2rem; 
   height: 2rem;
   outline: none;
   display: inline-block;

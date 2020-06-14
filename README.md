@@ -21,8 +21,6 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
     npm install
 
-You will need to do this if you want to look at the example.
-
 ## Usage
 
 There should be no need to install this package directly. For the record, however, the imports are as follows:
@@ -129,10 +127,6 @@ Automation is thanks to [npm scripts](https://docs.npmjs.com/misc/scripts), have
 
     npm run build-debug
     npm run watch-debug
-
-## References
-
-* [W3C Grammar of CSS 2.1](https://www.w3.org/TR/CSS21/grammar.html)
 
 ## Contact
 
