@@ -14,10 +14,12 @@ export default class CSSParser extends CommonParser {
   static fromBNF(bnf) {
     const tokens = bnfLexer.tokensFromBNF(bnf),
           rules = bnfParser.rulesFromTokens(tokens),
-          cssParser = new CSSParser(rules);
+          cssParser = CSSParser.fromRules(rules);
 
     return cssParser;
   }
+
+  static fromRules(rules) { return CommonParser.fromRules(CSSParser, rules); }
 
   static fromNothing() { return CSSParser.fromBNF(bnf); }
 }
