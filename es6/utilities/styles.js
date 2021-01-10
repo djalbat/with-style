@@ -7,21 +7,11 @@ import CSSParser from "../css/parser";
 const cssLexer = CSSLexer.fromNothing(),
       cssParser = CSSParser.fromNothing();
 
-let styleMap;
-
-if (typeof window === "undefined") {
-  styleMap = {}
-} else {
-  ({ styleMap } = window);  ///
-
-  if (styleMap === undefined) {
-    styleMap = {};
-  }
-
-  Object.assign(window, {
-    styleMap
-  });
+if (!globalThis.styleMap) {
+  globalThis.styleMap = {};
 }
+
+const { styleMap } = globalThis;
 
 function renderStyle(style) {
   const headDOMElement = document.querySelector("head"),
