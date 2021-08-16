@@ -4,6 +4,8 @@ import Style from "../style";
 import CSSLexer from "../css/lexer";
 import CSSParser from "../css/parser";
 
+import { HEAD, STYLE, EMPTY_STRING } from "../constants";
+
 const cssLexer = CSSLexer.fromNothing(),
       cssParser = CSSParser.fromNothing();
 
@@ -14,8 +16,8 @@ if (!globalThis.styleMap) {
 const { styleMap } = globalThis;
 
 function renderStyle(style) {
-  const headDOMElement = document.querySelector("head"),
-        styleDOMElement = document.createElement("style"),
+  const headDOMElement = document.querySelector(HEAD),
+        styleDOMElement = document.createElement(STYLE),
         innerHTML = `
         
 ${style}`;
@@ -44,7 +46,7 @@ function generateStyle(args, className, superStyle = null) {
                         `${content}${string}`;
 
           return content;
-        }, ""),
+        }, EMPTY_STRING),
         tokens = cssLexer.tokenise(content),
         node = cssParser.parse(tokens),
         style = Style.fromNodeAndTokens(node, tokens);
@@ -78,7 +80,7 @@ function retrieveStylesCSS() {
           stylesCSS += styleCSS;
 
           return stylesCSS;
-        }, "");
+        }, EMPTY_STRING);
 
   return stylesCSS;
 }

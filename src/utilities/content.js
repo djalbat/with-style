@@ -2,6 +2,8 @@
 
 import { arrayUtilities } from "necessary";
 
+import { EMPTY_STRING } from "../constants";
+
 const { first } = arrayUtilities;
 
 export function contentFromQueryNodeAndTokens(query, node, tokens) {
@@ -23,7 +25,7 @@ function contentFromNodeAndTokens(node, tokens) {
         firstTokenIndex = tokens.indexOf(firstToken),
         lastTokenIndex = tokens.indexOf(lastToken);
 
-  let content = "";
+  let content = EMPTY_STRING;
 
   for (let index = firstTokenIndex; index <= lastTokenIndex; index++) {
     const token = tokens[index],

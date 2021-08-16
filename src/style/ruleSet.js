@@ -4,6 +4,7 @@ import { Query } from "occam-dom";
 
 import Declarations from "./declarations";
 
+import { EMPTY_STRING } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
 const selectorsQuery = Query.fromExpression("//selectors");
@@ -43,11 +44,11 @@ export default class RuleSet {
   }
 
   asCSS(className, indent) {
-    let css = "";
+    let css = EMPTY_STRING;
 
     const declarationsCSS = this.declarations.asCSS(`  ${indent}`);
 
-    if (declarationsCSS !== "") {
+    if (declarationsCSS !== EMPTY_STRING) {
        css = `${indent}.${className}${this.selectors} {
 ${declarationsCSS}
 ${indent}}

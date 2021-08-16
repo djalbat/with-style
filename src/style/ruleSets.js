@@ -4,6 +4,8 @@ import { Query } from "occam-dom";
 
 import RuleSet from "./ruleSet";
 
+import { EMPTY_STRING } from "../constants";
+
 const ruleSetQuery = Query.fromExpression("/*/ruleSet");
 
 export default class RuleSets {
@@ -32,7 +34,7 @@ export default class RuleSets {
       css += ruleSetCSS;
 
       return css;
-    }, "");
+    }, EMPTY_STRING);
 
     return css;
   }

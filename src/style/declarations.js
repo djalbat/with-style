@@ -4,6 +4,8 @@ import { Query } from "occam-dom";
 
 import Declaration from "./declaration";
 
+import { EMPTY_STRING } from "../constants";
+
 const declarationQuery = Query.fromExpression("/*/declaration");
 
 export default class Declarations {
@@ -52,7 +54,7 @@ export default class Declarations {
       className = null; ///
     }
 
-    let css = "";
+    let css = EMPTY_STRING;
 
     const length = this.array.length;
 
@@ -65,7 +67,7 @@ export default class Declarations {
               declarationsCSS += declarationCSS;
 
               return declarationsCSS;
-            }, "");
+            }, EMPTY_STRING);
 
       if (className === null) {
         css = declarationsCSS;  ///

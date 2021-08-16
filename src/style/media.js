@@ -5,6 +5,7 @@ import { Query } from "occam-dom";
 import RuleSets from "./ruleSets";
 import Declarations from "./declarations";
 
+import { TWO_SPACES, FOUR_SPACES } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
 const mediaQueriesQuery = Query.fromExpression("/media/mediaQueries");
@@ -31,8 +32,8 @@ export default class Media {
   asCSS(className) {
     let css = "";
 
-    const ruleSetsCSS = this.ruleSets.asCSS(className, "  "),
-          declarationsCSS = this.declarations.asCSS(className, "    ");
+    const ruleSetsCSS = this.ruleSets.asCSS(className, TWO_SPACES),
+          declarationsCSS = this.declarations.asCSS(className, FOUR_SPACES);
 
     if ((ruleSetsCSS !== null) || (declarationsCSS !== null)) {
       css = `@media ${this.mediaQueries} {

@@ -4,6 +4,8 @@ import { Query } from "occam-dom";
 
 import Media from "./media";
 
+import { EMPTY_STRING } from "../constants";
+
 const mediaQuery = Query.fromExpression("/stylesheet/media");
 
 export default class Medias {
@@ -28,7 +30,7 @@ export default class Medias {
       css += mediaCSS;
 
       return css;
-    }, "");
+    }, EMPTY_STRING);
 
     return css;
   }
