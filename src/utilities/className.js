@@ -12,8 +12,8 @@ export function generateClassName() {
   let className = EMPTY_STRING;
 
   for (let index = 0; index < length; index++) {
-    const index = Math.floor(Math.random() * charactersLength),
-          character = characters[index];
+    const characterIndex = Math.floor(Math.random() * charactersLength),
+          character = characters[characterIndex];
 
     className += character;
   }
