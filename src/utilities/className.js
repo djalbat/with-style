@@ -20,11 +20,11 @@ export function generateClassName() {
 
   const classNamesIncludesClassName = classNames.includes(className);
 
-  if (classNamesIncludesClassName) {
+  if (!classNamesIncludesClassName) {
+    classNames.push(className);
+  } else {
     className = generateClassName();
   }
-
-  classNames.push(className);
 
   return className;
 }
