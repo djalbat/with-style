@@ -28,7 +28,7 @@ const entries = [
 
   { "operator": "^^(?:and|not|only)$" },
 
-  { "identifier": "^[_a-zA-Z][_a-zA-Z0-9-]*" },
+  { "identifier": "^[_a-zA-Z0-9-]+" },
 
   { "unary-operator": "^\\+|\\-" },
 
