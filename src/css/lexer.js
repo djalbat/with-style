@@ -1,12 +1,13 @@
 "use strict";
 
-import { CommonLexer, EndOfLineNonSignificantToken } from "occam-lexers";
+import { CommonLexer,
+         SingleLineCommentToken,
+         EndOfMultiLineCommentToken,
+         EndOfLineNonSignificantToken,
+         StartOfMultiLineCommentToken,
+         MiddleOfMultiLineCommentToken } from "occam-lexers";
 
 import entries from "./entries";
-import SingleLineCommentToken from "../token/nonSignificant/comment/singleLine";
-import EndOfMultiLineCommentToken from "../token/nonSignificant/comment/multiLine/endOf";
-import StartOfMultiLineCommentToken from "../token/nonSignificant/comment/multiLine/startOf";
-import MiddleOfMultiLineCommentToken from "../token/nonSignificant/comment/multiLine/middleOf";
 
 export default class CSSLexer extends CommonLexer {
   tokeniseEndOfLines(content) { return super.tokeniseEndOfLines(content, EndOfLineNonSignificantToken); }
