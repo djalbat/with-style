@@ -9,7 +9,9 @@ export default class CSSLexer extends CommonLexer {
 
   static RegularExpressionToken = null;
 
-  static fromNothing() { return CommonLexer.fromNothing(CSSLexer); }
+  static fromNothing() { return CommonLexer.fromEntries(CSSLexer, entries); }
+
+  static fromRules(rules) { return CommonLexer.fromRules(CSSLexer, rules); }
 
   static fromEntries(entries) { return CommonLexer.fromEntries(CSSLexer, entries); }
 }
