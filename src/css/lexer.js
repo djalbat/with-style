@@ -11,6 +11,8 @@ export default class CSSLexer extends CommonLexer {
 
   static WhitespaceToken = WhitespaceToken;
 
+  static EndOfLineCommentToken = null; ///
+
   static RegularExpressionToken = null;
 
   static SingleLineCommentToken = null; ///
