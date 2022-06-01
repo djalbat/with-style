@@ -2,15 +2,18 @@
 
 import { Query } from "occam-dom";
 
+import { EMPTY_STRING } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const propertyQuery = Query.fromExpression("/*/property"),
+const priorityQuery = Query.fromExpression("/*/priority"),
+      propertyQuery = Query.fromExpression("/*/property"),
       expressionQuery = Query.fromExpression("/*/expression");
 
 export default class Declaration {
-  constructor(property, expression) {
+  constructor(property, expression, priority) {
     this.property = property;
     this.expression = expression;
+    this.priority = priority;
   }
 
   getProperty() {
@@ -19,6 +22,10 @@ export default class Declaration {
 
   getExpression() {
     return this.expression;
+  }
+
+  getPriority() {
+    return this.priority;
   }
 
   checkMatches(declarations) {
@@ -36,8 +43,8 @@ export default class Declaration {
 
   asCSS(indent, last) {
     const css = last ?
-                `${indent}${this.property}: ${this.expression};` :
-                  `${indent}${this.property}: ${this.expression};\n`;
+                `${indent}${this.property}: ${this.expression}${this.priority};` :
+                  `${indent}${this.property}: ${this.expression}${this.priority};\n`;
 
     return css;
   }
@@ -45,9 +52,13 @@ export default class Declaration {
   static fromNodeAndTokens(node, tokens) {
     const propertyContent = contentFromQueryNodeAndTokens(propertyQuery, node, tokens),
           expressionContent = contentFromQueryNodeAndTokens(expressionQuery, node, tokens),
+          priorityContent = contentFromQueryNodeAndTokens(priorityQuery, node, tokens),
           property = propertyContent, ///
           expression = expressionContent, ///
-          declaration = new Declaration(property, expression);
+          priority = (priorityContent === null) ?
+                       EMPTY_STRING :
+                        ` ${priorityContent}`,
+          declaration = new Declaration(property, expression, priority);
 
     return declaration;
   }

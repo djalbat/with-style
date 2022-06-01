@@ -24,7 +24,7 @@ const monospaceFontMixin = `
 
 generateStyle([[`
 
-  display: none;
+  display: none !important;
   
   .active {
     display: block;

@@ -7,12 +7,18 @@ import { EMPTY_STRING } from "../constants";
 const { first } = arrayUtilities;
 
 export function contentFromQueryNodeAndTokens(query, node, tokens) {
+  let content = null;
+
   const nodes = query.execute(node),
-        firstNode = first(nodes);
+        nodesLength = nodes.length;
 
-  node = firstNode; ///
+  if (nodesLength > 0) {
+    const firstNode = first(nodes);
 
-  const content = contentFromNodeAndTokens(node, tokens);
+    node = firstNode; ///
+
+    content = contentFromNodeAndTokens(node, tokens);
+  }
 
   return content;
 }
