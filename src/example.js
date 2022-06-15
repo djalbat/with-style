@@ -24,7 +24,9 @@ const monospaceFontMixin = `
 
 generateStyle([[`
 
-  display: none !important;
+  width: auto !important;
+
+  display: none;
   
   .active {
     display: block;
@@ -37,7 +39,7 @@ const superStyle = retrieveStyle("abc");
 generateStyle([[`
 
   color: transparent;
-  width: 100%;
+  width: auto;
   height: 100%;
   cursor: auto;
   resize: none;
