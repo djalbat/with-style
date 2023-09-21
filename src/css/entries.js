@@ -24,13 +24,13 @@ const entries = [
 
   { "number": "^[0-9]+|[0-9]*\\.[0-9]+" },
 
-  { "special": "^;|::|:|\\.|,|/|\\|=|~=|=|>|\\{|\\}|\\(|\\)|\\[|\\]" },
-
-  { "operator": "^^(?:and|not|only)$" },
+  { "special": "^;|::|:|\\.|,|\\|=|~=|=|>|\\{|\\}|\\(|\\)|\\[|\\]" },
 
   { "identifier": "^[_a-zA-Z0-9-]+" },
 
-  { "unary-operator": "^\\+|\\-" },
+  { "logical-operator": "^^(?:and|not|only)$" },
+
+  { "arithmetic-operator": "^\\*|\\+|\\-|\\/" },
 
   { "unassigned": "^[^\\s]+" }
 

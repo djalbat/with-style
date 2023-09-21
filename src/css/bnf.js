@@ -84,7 +84,7 @@ const bnf = `
 
 
 
-    term                       ::=  [unary-operator]?
+    term                       ::=  [arithmetic-operator]?
                                                        
                                       (
                                                        
