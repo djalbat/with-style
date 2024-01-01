@@ -6,7 +6,7 @@ const entries = [
 
   { "keyword": "^(?:!important|@media)" },
 
-  { "percentage": "^(?:[0-9]+|[0-9]*\\.[0-9]+)\\%" },
+  { "percentage": "^(?:[0-9]+|[0-9]*\\.[0-9]+)%" },
 
   { "frequency": "^(?:[0-9]+|[0-9]*\\.[0-9]+)(?:hz|khz)" },
 
@@ -30,7 +30,7 @@ const entries = [
 
   { "logical-operator": "^^(?:and|not|only)$" },
 
-  { "arithmetic-operator": "^\\*|\\+|\\-|\\/" },
+  { "arithmetic-operator": "^\\*|\\+|-|\\/" },
 
   { "unassigned": "^[^\\s]+" }
 
