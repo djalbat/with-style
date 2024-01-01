@@ -30,7 +30,7 @@ const entries = [
 
   { "logical-operator": "^^(?:and|not|only)$" },
 
-  { "arithmetic-operator": "^\\*|\\+|-|\\/" },
+  { "arithmetic-operator": "^-|\\*|\\+|\\/" },
 
   { "unassigned": "^[^\\s]+" }
 
