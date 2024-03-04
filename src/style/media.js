@@ -1,6 +1,6 @@
 "use strict";
 
-import { Query } from "occam-dom";
+import { Query } from "occam-query";
 
 import RuleSets from "./ruleSets";
 import Declarations from "./declarations";

@@ -1,6 +1,6 @@
 "use strict";
 
-import { Query } from "occam-dom";
+import { Query } from "occam-query";
 
 import { EMPTY_STRING } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
