@@ -22,20 +22,49 @@ const bnf = `
     propertyValues             ::=  propertyValue ( "," propertyValue )* ;
 
 
-    mediaQueries               ::=  mediaQuery ( "," mediaQuery )* ;
+    mediaQueries               ::=  mediaQuery ( ( "," | "or" ) mediaQuery )* ;
                                                               
                                                               
     selectors                  ::=  selector ( "," selector )* ;
 
 
 
-    mediaQuery                 ::=  "not"? ( "only"? mediaType "and" )? mediaExpression ( "and" mediaExpression )* ;
+    mediaQuery                 ::=  "not"? ( mediaType "and" )? mediaFeatures ;
 
 
     mediaType                  ::=  "all" | "print" | "screen" | "speech" ;
                                                               
                                                               
-    mediaExpression            ::=  "(" [identifier] ( ":" propertyValue )? ")" ;
+    mediaFeatures              ::=  ( 
+    
+                                      mediaFeature 
+                                      
+                                      | 
+                                      
+                                      ( "(" "not" mediaFeature ")" ) 
+                                      
+                                    ) 
+    
+                                    ( 
+                                    
+                                      "and" 
+                                    
+                                      ( 
+                                      
+                                        mediaFeature 
+                                        
+                                        | 
+                                        
+                                        ( "(" "not" mediaFeature ")" ) 
+                                        
+                                      ) 
+                                      
+                                    )* 
+                                    
+                                 ;
+
+
+    mediaFeature               ::=  "(" [identifier] ( ":" propertyValue )? ")" ;
 
 
 
@@ -112,6 +141,7 @@ const bnf = `
                                     )
                                                        
                                  ;
+
 
 
     uri                        ::=  "url"<NO_WHITESPACE>"(" [string-literal] ")" ;

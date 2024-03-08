@@ -30,7 +30,7 @@ const entries = [
 
   { "identifier": "^[_a-zA-Z0-9-]+" },
 
-  { "logical-operator": "^^(?:and|not|only)$" },
+  { "logical-operator": "^^(?:and|not)$" },
 
   { "plus-or-minus": "^\\+|-" },
 
