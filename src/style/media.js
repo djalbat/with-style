@@ -8,17 +8,13 @@ import Declarations from "./declarations";
 import { TWO_SPACES, FOUR_SPACES } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const mediaQueriesQuery = Query.fromExpression("/media/mediaQueries");
+const queriesQuery = Query.fromExpression("/media/mediaQueries"); ///
 
 export default class Media {
-  constructor(mediaQueries, declarations, ruleSets) {
-    this.mediaQueries = mediaQueries;
+  constructor(declarations, ruleSets, queries) {
     this.declarations = declarations;
     this.ruleSets = ruleSets;
-  }
-
-  getMediaQueries() {
-    return this.mediaQueries;
+    this.queries = queries;
   }
 
   getDeclarations() {
@@ -29,6 +25,10 @@ export default class Media {
     return this.ruleSets;
   }
 
+  getQueries() {
+    return this.queries;
+  }
+
   asCSS(className) {
     let css = "";
 
@@ -36,7 +36,7 @@ export default class Media {
           declarationsCSS = this.declarations.asCSS(className, FOUR_SPACES);
 
     if ((ruleSetsCSS !== null) || (declarationsCSS !== null)) {
-      css = `@media ${this.mediaQueries} {
+      css = `@media ${this.queries} {
 ${declarationsCSS}${ruleSetsCSS}
 }
 
@@ -47,18 +47,18 @@ ${declarationsCSS}${ruleSetsCSS}
   }
 
   static fromNodeAndTokens(node, tokens) {
-    const mediaQueries = mediaQueriesFromNodeAndTokens(node, tokens),
-          declarations = Declarations.fromNodeAndTokens(node, tokens),
+    const declarations = Declarations.fromNodeAndTokens(node, tokens),
           ruleSets = RuleSets.fromNodeAndTokens(node, tokens),
-          media = new Media(mediaQueries, declarations, ruleSets);
+          queries = queriesFromNodeAndTokens(node, tokens),
+          media = new Media(declarations, ruleSets, queries);
 
     return media;
   }
 }
 
-function mediaQueriesFromNodeAndTokens(node, tokens) {
-  const mediaQueriesNodeContent = contentFromQueryNodeAndTokens(mediaQueriesQuery, node, tokens),
-        mediaQueries = `${mediaQueriesNodeContent}`;
+function queriesFromNodeAndTokens(node, tokens) {
+  const queriesNodeContent = contentFromQueryNodeAndTokens(queriesQuery, node, tokens),
+        queries = `${queriesNodeContent}`;
 
-  return mediaQueries;
+  return queries;
 }
