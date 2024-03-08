@@ -29,7 +29,11 @@ const bnf = `
 
 
 
-    mediaQuery                 ::=  "not"? ( mediaType "and" )? mediaFeatures ;
+    mediaQuery                 ::=  "not"? mediaType 
+    
+                                 |  ( "not"? mediaType "and" )? mediaFeatures 
+                                 
+                                 ;
 
 
     mediaType                  ::=  "all" | "print" | "screen" | "speech" ;
