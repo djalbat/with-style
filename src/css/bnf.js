@@ -29,9 +29,9 @@ const bnf = `
 
 
 
-    mediaQuery                 ::=  "not"? mediaType 
+    mediaQuery                 ::=  ( "not"? mediaType "and" )? mediaFeatures 
     
-                                 |  ( "not"? mediaType "and" )? mediaFeatures 
+                                 |  "not"? mediaType
                                  
                                  ;
 
