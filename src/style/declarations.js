@@ -1,10 +1,13 @@
 "use strict";
 
 import { Query } from "occam-query";
+import { arrayUtilities } from "necessary";
 
 import Declaration from "./declaration";
 
 import { EMPTY_STRING } from "../constants";
+
+const { forwardsForEach, backwardsForEach } = arrayUtilities;
 
 const declarationQuery = Query.fromExpression("/*/declaration");
 
@@ -13,33 +16,13 @@ export default class Declarations {
     this.array = array;
   }
 
-  forwardsForEach(callback) {
-    const length = this.array.length,
-          firstIndex = 0,
-          lastIndex = length - 1;
+  forwardsForEach(callback) { forwardsForEach(this.array, callback); }
 
-    for (let index = firstIndex; index <= lastIndex; index++) {
-      const declaration = this.array[index];
-
-      callback(declaration, index);
-    }
-  }
-
-  backwardsForEach(callback) {
-    const length = this.array.length,
-          firstIndex = 0,
-          lastIndex = length - 1;
-
-    for (let index = lastIndex; index >= firstIndex; index--) {
-      const declaration = this.array[index];
-
-      callback(declaration, index);
-    }
-  }
+  backwardsForEach(callback) { backwardsForEach(this.array, callback); }
 
   unshift(declarations) {
     declarations.backwardsForEach((declaration) => {
-      const matches = declaration.checkMatches(this.array); ///
+      const matches = declaration.matchDeclarations(this); ///
 
       if (!matches) {
         this.array.unshift(declaration);

@@ -27,6 +27,8 @@ ${style}`;
   });
 
   headDOMElement.appendChild(styleDOMElement);
+
+  return styleDOMElement;
 }
 
 function renderStyles() {
@@ -51,11 +53,11 @@ function generateStyle(args, className, superStyle = null) {
         node = cssParser.parse(tokens),
         style = Style.fromNodeAndTokens(node, tokens);
 
-        if (superStyle !== null) {
-          style.extends(superStyle);
-        }
+  if (superStyle !== null) {
+    style.extends(superStyle);
+  }
 
-        styleMap[className] = style;
+  styleMap[className] = style;
 }
 
 function retrieveStyle(className) {

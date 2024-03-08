@@ -5,35 +5,47 @@ import { Query } from "occam-query";
 import { EMPTY_STRING } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const priorityQuery = Query.fromExpression("/*/priority"),
-      propertyQuery = Query.fromExpression("/*/property"),
-      expressionQuery = Query.fromExpression("/*/expression");
+const importantQuery = Query.fromExpression("/*/important"),
+      propertyNameQuery = Query.fromExpression("/*/propertyName"),
+      propertyValuesQuery = Query.fromExpression("/*/propertyValues");
 
 export default class Declaration {
-  constructor(property, expression, priority) {
-    this.property = property;
-    this.expression = expression;
-    this.priority = priority;
+  constructor(propertyValues, propertyName, important) {
+    this.propertyValues = propertyValues;
+    this.propertyName = propertyName;
+    this.important = important;
   }
 
-  getProperty() {
-    return this.property;
+  getPropertyValues() {
+    return this.propertyValues;
   }
 
-  getExpression() {
-    return this.expression;
+  getNameProperty() {
+    return this.propertyName;
   }
 
-  getPriority() {
-    return this.priority;
+  getImportant() {
+    return this.important;
   }
 
-  checkMatches(declarations) {
+  matchPropertyName(propertyName) {
+    const matches = (this.propertyName === propertyName);
+
+    return matches;
+  }
+
+  matchDeclaration(declaration) {
+    const propertyName = declaration.getPropertyName(),
+          matches = this.matchPropertyName(propertyName); ///
+
+    return matches;
+  }
+
+  matchDeclarations(declarations) {
     const matches = declarations.some((declaration) => {
-      const property = declaration.getProperty(),
-            propertiesMatch = (property === this.property);
+      const matches = this.matchDeclaration(declaration);
 
-      if (propertiesMatch) {
+      if (matches) {
         return true;
       }
     });
@@ -43,22 +55,22 @@ export default class Declaration {
 
   asCSS(indent, last) {
     const css = last ?
-                `${indent}${this.property}: ${this.expression}${this.priority};` :
-                  `${indent}${this.property}: ${this.expression}${this.priority};\n`;
+                  `${indent}${this.propertyName}: ${this.propertyValues}${this.important};` :
+                    `${indent}${this.propertyName}: ${this.propertyValues}${this.important};\n`;
 
     return css;
   }
 
   static fromNodeAndTokens(node, tokens) {
-    const propertyContent = contentFromQueryNodeAndTokens(propertyQuery, node, tokens),
-          expressionContent = contentFromQueryNodeAndTokens(expressionQuery, node, tokens),
-          priorityContent = contentFromQueryNodeAndTokens(priorityQuery, node, tokens),
-          property = propertyContent, ///
-          expression = expressionContent, ///
-          priority = (priorityContent === null) ?
-                       EMPTY_STRING :
-                        ` ${priorityContent}`,
-          declaration = new Declaration(property, expression, priority);
+    const propertyValuesContent = contentFromQueryNodeAndTokens(propertyValuesQuery, node, tokens),
+          propertyNameContent = contentFromQueryNodeAndTokens(propertyNameQuery, node, tokens),
+          importantContent = contentFromQueryNodeAndTokens(importantQuery, node, tokens),
+          propertyValues = propertyValuesContent, ///
+          propertyName = propertyNameContent, ///
+          important = (importantContent === null) ?
+                        EMPTY_STRING :
+                         ` ${importantContent}`,
+          declaration = new Declaration(propertyValues, propertyName, important);
 
     return declaration;
   }

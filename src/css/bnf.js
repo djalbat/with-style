@@ -2,45 +2,51 @@
 
 const bnf = `
 
-
-
     stylesheet                 ::= ( media | ruleSet | declaration | error )+ ;
-
-
 
 
 
     media                      ::= "@media" mediaQueries "{" ( ruleSet | declaration )* "}" ;
                                                               
-                                                              
+    ruleSet                    ::=  selectors "{" declaration* "}" ;
+    
+    declaration                ::=  propertyName ":" propertyValues important? ";" ;
+
+    error!                     ::=  . ;
+
+
+
+    propertyValues             ::=  propertyValue ( "," propertyValue )* ;
+
+
     mediaQueries               ::=  mediaQuery ( "," mediaQuery )* ;
                                                               
                                                               
+    selectors                  ::=  selector ( "," selector )* ;
+
+
+
     mediaQuery                 ::=  "not"? ( "only"? mediaType "and" )? mediaExpression ( "and" mediaExpression )* ;
 
 
     mediaType                  ::=  "all" | "print" | "screen" | "speech" ;
                                                               
                                                               
-    mediaExpression            ::=  "(" [identifier] ( ":" expression )? ")" ;
+    mediaExpression            ::=  "(" [identifier] ( ":" propertyValue )? ")" ;
 
 
 
+    propertyValue              ::=  term ( ","? term )* ;
 
 
-    ruleSet                    ::=  selectors "{" declaration* "}" ;
-    
-    
-    selectors                  ::=  selector ( "," selector )* ;
+    propertyName               ::=  [identifier] ;
+
+
+    important                  ::=  "!important" ;
 
 
     selector                   ::=  ( class | pseudoClass | pseudoElement | attribute )+ ;
 
-
-
-
-
-    declaration                ::=  property ":" expression ( "," expression )* priority? ";" ;
 
 
     class                      ::=  "."<NO_WHITESPACE>[identifier] parenthesisedSelector? ;
@@ -53,6 +59,7 @@ const bnf = `
 
 
     parenthesisedSelector      ::=  <NO_WHITESPACE>"(" selector <NO_WHITESPACE>")" ;
+
 
 
     attribute                  ::=  "["
@@ -70,17 +77,6 @@ const bnf = `
                                     "]"
 
                                  ;
-
-
-    property                   ::=  [identifier] ;
-
-
-    expression                 ::=  term ( ","? term )* ;
-
-
-    priority                   ::=  "!important" ;
-
-
 
 
 
@@ -118,15 +114,7 @@ const bnf = `
     uri                        ::=  "url"<NO_WHITESPACE>"(" [string-literal] ")" ;
 
 
-    function                   ::=  [identifier]<NO_WHITESPACE>"(" expression ")" ;
-
-
-
-
-
-    error!                     ::=  . ;
-
-
+    function                   ::=  [identifier]<NO_WHITESPACE>"(" propertyValue ")" ;
 
 `;
 
