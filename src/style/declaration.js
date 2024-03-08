@@ -42,7 +42,7 @@ export default class Declaration {
   }
 
   matchDeclarations(declarations) {
-    const matches = declarations.some((declaration) => {
+    const matches = declarations.someDeclaration((declaration) => {
       const matches = this.matchDeclaration(declaration);
 
       if (matches) {

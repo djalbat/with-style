@@ -16,12 +16,14 @@ export default class Declarations {
     this.array = array;
   }
 
-  forwardsForEach(callback) { forwardsForEach(this.array, callback); }
+  someDeclaration(callback) { return this.array.some(callback); }
 
-  backwardsForEach(callback) { backwardsForEach(this.array, callback); }
+  forwardsForEachDeclaration(callback) { forwardsForEach(this.array, callback); }
+
+  backwardsForEachDeclaration(callback) { backwardsForEach(this.array, callback); }
 
   unshift(declarations) {
-    declarations.backwardsForEach((declaration) => {
+    declarations.backwardsForEachDeclaration((declaration) => {
       const matches = declaration.matchDeclarations(this); ///
 
       if (!matches) {
