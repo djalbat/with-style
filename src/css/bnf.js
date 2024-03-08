@@ -7,10 +7,13 @@ const bnf = `
 
 
     media                      ::= "@media" mediaQueries "{" ( ruleSet | declaration )* "}" ;
+                                     
                                                               
     ruleSet                    ::=  selectors "{" declaration* "}" ;
     
+    
     declaration                ::=  propertyName ":" propertyValues important? ";" ;
+
 
     error!                     ::=  . ;
 
