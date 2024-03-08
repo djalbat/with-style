@@ -20,7 +20,7 @@ export default class Declaration {
     return this.propertyValues;
   }
 
-  getNameProperty() {
+  getPropertyName() {
     return this.propertyName;
   }
 
