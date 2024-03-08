@@ -2,9 +2,11 @@
 
 const entries = [
 
+  { "media": "^@media" },
+
   { "colour": "^#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})" },
 
-  { "keyword": "^(?:!important|@media)" },
+  { "important": "^!important" },
 
   { "percentage": "^(?:[0-9]+|[0-9]*\\.[0-9]+)%" },
 
@@ -30,7 +32,7 @@ const entries = [
 
   { "logical-operator": "^^(?:and|not|only)$" },
 
-  { "arithmetic-operator": "^-|\\*|\\+|\\/" },
+  { "plus-or-minus": "^\\+|-" },
 
   { "unassigned": "^[^\\s]+" }
 

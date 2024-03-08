@@ -80,35 +80,35 @@ const bnf = `
 
 
 
-    term                       ::=  [arithmetic-operator]?
+    term                       ::=  [plus-or-minus]?
                                                        
-                                      (
+                                    (
+                                                     
+                                      ( [percentage] | [frequency] | [fraction] | [length] | [angle] | [rems] | [ems] | [time] | [number] )
+                                                     
+                                      |
+                                                     
+                                      uri
+                                                     
+                                      |
+                                                     
+                                      function
+                                                     
+                                      |
+                                                     
+                                      [string-literal]+
+                                                     
+                                      |
+                                                     
+                                      [identifier]
+                                                     
+                                      |
+                                                     
+                                      [colour]
+                                                     
+                                    )
                                                        
-                                        ( [percentage] | [frequency] | [fraction] | [length] | [angle] | [rems] | [ems] | [time] | [number] )
-                                                       
-                                        |
-                                                       
-                                        uri
-                                                       
-                                        |
-                                                       
-                                        function
-                                                       
-                                        |
-                                                       
-                                        [string-literal]+
-                                                       
-                                        |
-                                                       
-                                        [identifier]
-                                                       
-                                        |
-                                                       
-                                        [colour]
-                                                       
-                                      )
-                                                       
-                                   ;
+                                 ;
 
 
     uri                        ::=  "url"<NO_WHITESPACE>"(" [string-literal] ")" ;
