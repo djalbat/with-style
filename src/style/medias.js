@@ -23,9 +23,9 @@ export default class Medias {
     this.array.forEach(callback);
   }
 
-  asCSS(className) {
+  asCSS(className, indent) {
     const css = this.array.reduce((css, media) => {
-      const mediaCSS = media.asCSS(className);
+      const mediaCSS = media.asCSS(className, indent);
 
       css += mediaCSS;
 

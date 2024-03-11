@@ -5,7 +5,8 @@ import { Query } from "occam-query";
 import RuleSets from "./ruleSets";
 import Declarations from "./declarations";
 
-import { TWO_SPACES, FOUR_SPACES } from "../constants";
+import { trim } from "../utilities/string";
+import { TWO_SPACES, EMPTY_STRING } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
 const queriesQuery = Query.fromExpression("/media/mediaQueries"); ///
@@ -29,16 +30,21 @@ export default class Media {
     return this.queries;
   }
 
-  asCSS(className) {
-    let css = "";
+  asCSS(className, indent) {
+    indent = indent + TWO_SPACES;
 
-    const ruleSetsCSS = this.ruleSets.asCSS(className, TWO_SPACES),
-          declarationsCSS = this.declarations.asCSS(className, FOUR_SPACES);
+    let css = EMPTY_STRING;
 
-    if ((ruleSetsCSS !== null) || (declarationsCSS !== null)) {
+    const ruleSetsCSS = this.ruleSets.asCSS(className, indent),
+          declarationsCSS = this.declarations.asCSS(className, indent);
+
+    let ruleSetsDeclarationsCSS = `${declarationsCSS}${ruleSetsCSS}`;
+
+    if (ruleSetsDeclarationsCSS !== EMPTY_STRING) {
+      ruleSetsDeclarationsCSS = trim(ruleSetsDeclarationsCSS);
+
       css = `@media ${this.queries} {
-${declarationsCSS}${ruleSetsCSS}
-}
+${ruleSetsDeclarationsCSS}}
 
 `;
     }

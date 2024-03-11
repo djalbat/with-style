@@ -46,12 +46,11 @@ export default class RuleSet {
   asCSS(className, indent) {
     let css = EMPTY_STRING;
 
-    const declarationsCSS = this.declarations.asCSS(`  ${indent}`);
+    const declarationsCSS = this.declarations.asCSS(null, indent);
 
     if (declarationsCSS !== EMPTY_STRING) {
        css = `${indent}.${className}${this.selectors} {
-${declarationsCSS}
-${indent}}
+${declarationsCSS}${indent}}
 
 `;
     }

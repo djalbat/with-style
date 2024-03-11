@@ -18,9 +18,9 @@ const { styleMap } = globalThis;
 function renderStyle(style) {
   const headDOMElement = document.querySelector(HEAD),
         styleDOMElement = document.createElement(STYLE),
-        innerHTML = `
-        
-${style}`;
+        innerHTML = `        
+${style}
+`;
 
   Object.assign(styleDOMElement, {
     innerHTML
@@ -41,11 +41,11 @@ function renderStyles() {
 function generateStyle(args, className, superStyle = null) {
   const strings = args.shift(),	///
         content = strings.reduce((content, string, index) => {
-          const arg = args[index];
+          const arg = args[index] || null;
 
-          content = (arg !== undefined) ?
-                      `${content}${string}${arg}` :
-                        `${content}${string}`;
+          content = (arg === null) ?
+                      `${content}${string}` :
+                        `${content}${string}${arg}`;
 
           return content;
         }, EMPTY_STRING),

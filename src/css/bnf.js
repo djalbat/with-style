@@ -5,7 +5,6 @@ const bnf = `
     stylesheet                 ::= ( media | ruleSet | declaration | error )+ ;
 
 
-
     media                      ::= "@media" mediaQueries "{" ( ruleSet | declaration )* "}" ;
                                      
                                                               
@@ -18,7 +17,6 @@ const bnf = `
     error!                     ::=  . ;
 
 
-
     propertyValues             ::=  propertyValue ( "," propertyValue )* ;
 
 
@@ -26,7 +24,6 @@ const bnf = `
                                                               
                                                               
     selectors                  ::=  selector ( "," selector )* ;
-
 
 
     mediaQuery                 ::=  ( "not"? mediaType "and" )? mediaFeatures 
@@ -71,7 +68,6 @@ const bnf = `
     mediaFeature               ::=  "(" [identifier] ( ":" propertyValue )? ")" ;
 
 
-
     propertyValue              ::=  term ( ","? term )* ;
 
 
@@ -84,7 +80,6 @@ const bnf = `
     selector                   ::=  ( class | pseudoClass | pseudoElement | attribute )+ ;
 
 
-
     class                      ::=  "."<NO_WHITESPACE>[identifier] parenthesisedSelector? ;
 
 
@@ -95,7 +90,6 @@ const bnf = `
 
 
     parenthesisedSelector      ::=  <NO_WHITESPACE>"(" selector <NO_WHITESPACE>")" ;
-
 
 
     attribute                  ::=  "["
@@ -113,7 +107,6 @@ const bnf = `
                                     "]"
 
                                  ;
-
 
 
     term                       ::=  [plus-or-minus]?
@@ -145,7 +138,6 @@ const bnf = `
                                     )
                                                        
                                  ;
-
 
 
     uri                        ::=  "url"<NO_WHITESPACE>"(" [string-literal] ")" ;

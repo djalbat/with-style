@@ -2,7 +2,7 @@
 
 import { Query } from "occam-query";
 
-import { EMPTY_STRING } from "../constants";
+import { EMPTY_STRING, TWO_SPACES } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
 const importantQuery = Query.fromExpression("/*/important"),
@@ -53,10 +53,10 @@ export default class Declaration {
     return matches;
   }
 
-  asCSS(indent, last) {
-    const css = last ?
-                  `${indent}${this.propertyName}: ${this.propertyValues}${this.important};` :
-                    `${indent}${this.propertyName}: ${this.propertyValues}${this.important};\n`;
+  asCSS(indent) {
+    indent = indent + TWO_SPACES;
+
+    const css = `${indent}${this.propertyName}: ${this.propertyValues}${this.important};\n`;
 
     return css;
   }

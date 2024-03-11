@@ -31,6 +31,16 @@ generateStyle([[`
   .active {
     display: block;
   }
+  
+  @media (min-width: 640px) {
+
+    padding-top: 1rem; 
+    
+    .menu {
+      margin: 0;    
+    }
+
+  }
 
 `]], "abc");
 

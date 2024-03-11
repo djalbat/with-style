@@ -33,37 +33,19 @@ export default class Declarations {
   }
 
   asCSS(className, indent) {
-    if (indent === undefined) {
-      indent = className; ///
+    const declarationsCSS = this.array.reduce((declarationsCSS, declaration) => {
+            const declarationCSS = declaration.asCSS(indent);
 
-      className = null; ///
-    }
+            declarationsCSS += declarationCSS;
 
-    let css = EMPTY_STRING;
-
-    const length = this.array.length;
-
-    if (length > 0) {
-      const lastIndex = length - 1,
-            declarationsCSS = this.array.reduce((declarationsCSS, declaration, index) => {
-              const last = (index === lastIndex),
-                    declarationCSS = declaration.asCSS(indent, last);
-
-              declarationsCSS += declarationCSS;
-
-              return declarationsCSS;
-            }, EMPTY_STRING);
-
-      if (className === null) {
-        css = declarationsCSS;  ///
-      } else {
-        css = `.${className} {
-${declarationsCSS}
-}
+            return declarationsCSS;
+          }, EMPTY_STRING),
+          css = (className === null) ?
+                  declarationsCSS :  ///
+                    `${indent}.${className} {
+${declarationsCSS}${indent}}
 
 `;
-      }
-    }
 
     return css;
   }

@@ -4,6 +4,8 @@ import Medias from "./style/medias";
 import RuleSets from "./style/ruleSets";
 import Declarations from "./style/declarations";
 
+import { EMPTY_STRING } from "./constants";
+
 export default class Style {
   constructor(declarations, ruleSets, medias) {
     this.declarations = declarations;
@@ -38,9 +40,10 @@ export default class Style {
   }
 
   asCSS(className) {
-    const declarationsCSS = this.declarations.asCSS(className, "  "),
-          ruleSetsCSS = this.ruleSets.asCSS(className, ""),
-          mediasCSS = this.medias.asCSS(className),
+    const indent = EMPTY_STRING,
+          declarationsCSS = this.declarations.asCSS(className, indent),
+          ruleSetsCSS = this.ruleSets.asCSS(className, indent),
+          mediasCSS = this.medias.asCSS(className, indent),
           css = `${declarationsCSS}${ruleSetsCSS}${mediasCSS}`;
 
     return css;
