@@ -61,9 +61,9 @@ ${declarationsCSS}${indent}}
   static fromNodeAndTokens(node, tokens) {
     const selectors = selectorsFromNodeAndTokens(node, tokens),
           declarations = Declarations.fromNodeAndTokens(node, tokens),
-          media = new RuleSet(selectors, declarations);
+          ruleSet = new RuleSet(selectors, declarations);
 
-    return media;
+    return ruleSet;
   }
 }
 
