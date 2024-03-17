@@ -14,7 +14,7 @@ const bnf = `
     declaration                ::=  propertyName ":" propertyValues important? ";" ;
 
 
-    error!                     ::=  . ;
+    error.                     ::=  . ;
 
 
     propertyValues             ::=  propertyValue ( "," propertyValue )* ;
