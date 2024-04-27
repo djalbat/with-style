@@ -32,6 +32,12 @@ generateStyle([[`
     display: block;
   }
   
+  @keyframes redish {
+    0% { color: darkred; }
+    50% { color: red; }
+    100% { color: lightred; }
+  }
+  
   @media (min-width: 640px) {
 
     padding-top: 1rem; 
@@ -63,6 +69,12 @@ generateStyle([[`
   overflow-wrap: normal;
   background-color: transparent;
 
+  @keyframes blueish {
+    0% { color: darkblue; }
+    50% { color: blue; }
+    100% { color: lightblue; }
+  }
+  
   ::selection { background-color: transparent; }
   
   ${monospaceFontMixin}

@@ -2,7 +2,7 @@
 
 const bnf = `
 
-    stylesheet                 ::= ( media | ruleSet | declaration | error )+ ;
+    stylesheet                 ::= ( media | ruleSet | keyframes | declaration | error )+ ;
 
 
     media                      ::= "@media" mediaQueries "{" ( ruleSet | declaration )* "}" ;
@@ -11,6 +11,9 @@ const bnf = `
     ruleSet                    ::=  selectors "{" declaration* "}" ;
     
     
+    keyframes                  ::= "@keyframes" [identifier] "{" keyframe+ "}" ;
+                                     
+                                                              
     declaration                ::=  propertyName ":" propertyValues important? ";" ;
 
 
@@ -26,6 +29,9 @@ const bnf = `
     selectors                  ::=  selector ( "," selector )* ;
 
 
+    keyframe                   ::=  [percentage] "{" declaration+ "}" ;
+    
+    
     mediaQuery                 ::=  ( "not"? mediaType "and" )? mediaFeatures 
     
                                  |  "not"? mediaType

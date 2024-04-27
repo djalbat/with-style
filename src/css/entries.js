@@ -5,6 +5,9 @@ const entries = [
     "media": "^@media"
   },
   {
+    "keyframes": "^@keyframes"
+  },
+  {
     "colour": "^#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})"
   },
   {
