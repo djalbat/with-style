@@ -24,16 +24,12 @@ export function contentFromQueryNodeAndTokens(query, node, tokens) {
 }
 
 function contentFromNodeAndTokens(node, tokens) {
-  const firstSignificantToken = node.getFirstSignificantToken(),
-        lastSignificantToken = node.getLastSignificantToken(),
-        firstToken = firstSignificantToken, ///
-        lastToken = lastSignificantToken, ///
-        firstTokenIndex = tokens.indexOf(firstToken),
-        lastTokenIndex = tokens.indexOf(lastToken);
+  const firstSignificantTokenIndex = node.getFirstSignificantTokenIndex(tokens),
+        lastSignificantTokenIndex = node.getLastSignificantTokenIndex(tokens);
 
   let content = EMPTY_STRING;
 
-  for (let index = firstTokenIndex; index <= lastTokenIndex; index++) {
+  for (let index = firstSignificantTokenIndex; index <= lastSignificantTokenIndex; index++) {
     const token = tokens[index],
           tokenContent = token.getContent();
 
