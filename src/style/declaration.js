@@ -5,9 +5,9 @@ import { Query } from "occam-query";
 import { EMPTY_STRING, TWO_SPACES } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const importantQuery = Query.fromExpression("/*/important"),
-      propertyNameQuery = Query.fromExpression("/*/propertyName"),
-      propertyValuesQuery = Query.fromExpression("/*/propertyValues");
+const importantQuery = Query.fromExpressionString("/*/important"),
+      propertyNameQuery = Query.fromExpressionString("/*/propertyName"),
+      propertyValuesQuery = Query.fromExpressionString("/*/propertyValues");
 
 export default class Declaration {
   constructor(propertyValues, propertyName, important) {

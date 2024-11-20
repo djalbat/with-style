@@ -7,8 +7,8 @@ import Declaration from "./declaration";
 
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const percentageQuery = Query.fromExpression("/*/@percentage"),
-      declarationQuery = Query.fromExpression("/*/declaration");
+const percentageQuery = Query.fromExpressionString("/*/@percentage"),
+      declarationQuery = Query.fromExpressionString("/*/declaration");
 
 const { first } = arrayUtilities;
 

@@ -6,7 +6,7 @@ import Keyframes from "./keyframes";
 
 import { EMPTY_STRING } from "../constants";
 
-const keyframesQuery = Query.fromExpression("/stylesheet/keyframes");
+const keyframesQuery = Query.fromExpressionString("/stylesheet/keyframes");
 
 export default class Keyframess {
   constructor(array) {

@@ -6,7 +6,7 @@ import RuleSet from "./ruleSet";
 
 import { EMPTY_STRING } from "../constants";
 
-const ruleSetQuery = Query.fromExpression("/*/ruleSet");
+const ruleSetQuery = Query.fromExpressionString("/*/ruleSet");
 
 export default class RuleSets {
   constructor(array) {

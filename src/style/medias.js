@@ -6,7 +6,7 @@ import Media from "./media";
 
 import { EMPTY_STRING } from "../constants";
 
-const mediaQuery = Query.fromExpression("/stylesheet/media");
+const mediaQuery = Query.fromExpressionString("/stylesheet/media");
 
 export default class Medias {
   constructor(array) {

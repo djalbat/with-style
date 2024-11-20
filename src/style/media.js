@@ -9,7 +9,7 @@ import { trim } from "../utilities/string";
 import { TWO_SPACES, EMPTY_STRING } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const queriesQuery = Query.fromExpression("/media/mediaQueries"); ///
+const queriesQuery = Query.fromExpressionString("/media/mediaQueries"); ///
 
 export default class Media {
   constructor(declarations, ruleSets, queries) {

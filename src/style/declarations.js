@@ -9,7 +9,7 @@ import { EMPTY_STRING } from "../constants";
 
 const { forwardsForEach, backwardsForEach } = arrayUtilities;
 
-const declarationQuery = Query.fromExpression("/*/declaration");
+const declarationQuery = Query.fromExpressionString("/*/declaration");
 
 export default class Declarations {
   constructor(array) {

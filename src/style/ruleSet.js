@@ -7,7 +7,7 @@ import Declarations from "./declarations";
 import { EMPTY_STRING } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const selectorsQuery = Query.fromExpression("//selectors");
+const selectorsQuery = Query.fromExpressionString("//selectors");
 
 export default class RuleSet {
   constructor(selectors, declarations) {

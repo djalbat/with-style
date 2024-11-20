@@ -7,8 +7,8 @@ import Keyframe from "./keyframe";
 import { EMPTY_STRING, TWO_SPACES } from "../constants";
 import { contentFromQueryNodeAndTokens } from "../utilities/content";
 
-const keyframeQuery = Query.fromExpression("/keyframes/keyframe"),
-      identifierQuery = Query.fromExpression("/keyframes/@identifier");
+const keyframeQuery = Query.fromExpressionString("/keyframes/keyframe"),
+      identifierQuery = Query.fromExpressionString("/keyframes/@identifier");
 
 export default class Keyframes {
   constructor(array, identifier) {
