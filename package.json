@@ -1,7 +1,7 @@
 {
   "name": "with-style",
   "author": "James Smith",
-  "version": "5.0.253",
+  "version": "5.0.254",
   "license": "MIT, Anti-996",
   "homepage": "https://github.com/djalbat/with-style",
   "description": "Programmatic styles.",
@@ -13,7 +13,7 @@
     "necessary": "^14.0.1",
     "occam-lexers": "^23.0.47",
     "occam-parser": "^2.0.0",
-    "occam-parsers": "^23.0.123",
+    "occam-parsers": "^23.0.129",
     "occam-query": "^4.1.63",
     "parsers": "^0.1.1"
   },
