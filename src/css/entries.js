@@ -44,13 +44,13 @@ const entries = [
     "special": "^;|::|:|\\.|,|\\|=|~=|=|>|\\{|\\}|\\(|\\)|\\[|\\]"
   },
   {
-    "identifier": "^[_a-zA-Z0-9-]+"
+    "identifier": "^[_a-zA-Z0-9\\-]+"
   },
   {
-    "logical-operator": "^^(?:and|not)$"
+    "logical-operator": "^(?:and|not)$"
   },
   {
-    "plus-or-minus": "^\\+|-"
+    "plus-or-minus": "^[\\+\\-]"
   },
   {
     "unassigned": "^[^\\s]+"
