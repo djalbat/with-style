@@ -1,7 +1,7 @@
 {
   "name": "with-style",
   "author": "James Smith",
-  "version": "5.0.270",
+  "version": "5.0.271",
   "license": "MIT, Anti-996",
   "homepage": "https://github.com/djalbat/with-style",
   "description": "Programmatic styles.",
@@ -10,18 +10,17 @@
     "url": "https://github.com/djalbat/with-style"
   },
   "dependencies": {
-    "necessary": "^15.0.2",
-    "occam-lexers": "^23.1.6",
-    "occam-parsers": "^23.1.12",
-    "occam-query": "^4.1.115",
-    "parsers": "^0.1.1"
+    "necessary": "^15.0.6",
+    "occam-lexers": "^23.1.15",
+    "occam-parsers": "^23.1.18",
+    "occam-query": "^4.1.124"
   },
   "devDependencies": {
-    "@swc/core": "^1.5.6",
-    "esbuild": "^0.9.2",
+    "@swc/core": "1.13.20",
+    "esbuild": "0.11.14",
     "express": "^4.17.1",
-    "lively-cli": "^2.0.51",
-    "watchful-cli": "^1.7.43"
+    "lively-cli": "^2.0.78",
+    "watchful-cli": "^1.7.61"
   },
   "scripts": {
     "start": "node ./bin/main.js",
