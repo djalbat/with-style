@@ -74,7 +74,7 @@ const bnf = `
     mediaFeature               ::=  "(" [identifier] ( ":" propertyValue )? ")" ;
 
 
-    propertyValue              ::=  term ( ","? term )* ;
+    propertyValue              ::=  term ( ( "," | "/" )? term )* ;
 
 
     propertyName               ::=  [identifier] ;
